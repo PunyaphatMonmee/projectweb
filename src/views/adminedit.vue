@@ -197,7 +197,7 @@ export default {
       }
     });
     $(function () {
-      $("#example1").DataTable({
+      $("#example1").DataTable({ 
         responsive: true,
         autoWidth: false,
       });
