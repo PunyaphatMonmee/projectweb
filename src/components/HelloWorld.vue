@@ -32,12 +32,35 @@
 </template>
 
 <script>
+import firebase from "firebase";
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   props: {
     msg: String
+  },
+  methods: {
+    socialGoogleLogin: function() {
+      const provide = new firebase.auth.GoogleAuthProvider().addScope("email");
+      firebase
+        .auth()
+        .signInWithPopup(provide)
+        .then(result => {
+          // create user in db
+          let obj = {
+            google_id: result.additionalUserInfo.profile.id,
+            fullname: result.additionalUserInfo.profile.name,
+            email: result.additionalUserInfo.profile.email,
+            profile_image: result.additionalUserInfo.profile.picture,
+            user_type_id: 1
+          };
+          console.log(obj);
+        })
+        .catch(err => {
+          alert("Oops. " + err.message);
+        });
+    }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -56,4 +79,6 @@ li {
 a {
   color: #42b983;
 }
+
+
 </style>
