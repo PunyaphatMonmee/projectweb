@@ -189,33 +189,25 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr role="row" class="odd">
-                    <td tabindex="0" class="sorting_1" align = "center">
+                  <tr role="row" class="odd" v-for="x in datas">
+                    <td tabindex="0" class="sorting_1" align="center">
                       <img
                         class="sizeimg"
                         src="https://img.home.co.th/images/img_v/img_Directory/20180119-113844001-Big.jpg"
                         alt="Card image cap"
                       />
-                  </td>
-                  <td>204/139</td>
-                  <td>1</td>
-                  <td>8000</td>
-                  <td><span class="badge badge-success" style="width: 50px">ว่าง</span></td>
-                  <td><a href="../userrent" class="btn btn-primary">รายละเอียด</a></td>
-                  </tr>
-                  <tr role="row" class="odd">
-                    <td tabindex="0" class="sorting_1" align = "center">
-                      <img
-                        class="sizeimg"
-                        src="https://img.home.co.th/images/img_v/img_Directory/20180119-113844001-Big.jpg"
-                        alt="Card image cap"
-                      />
-                  </td>
-                  <td>204/239</td>
-                  <td>1</td>
-                  <td>7500</td>
-                  <td><span class="badge badge-danger" style="width: 50px">เช่าเเล้ว</span></td>
-                  <td><a href="../userrent" class="btn btn-primary">รายละเอียด</a></td>
+                    </td>
+                    <td>{{ x.numberhome }}</td>
+                    <td>{{ x.class }}</td>
+                    <td>{{ x.price }}</td>
+                    <td>
+                      <span class="badge badge-success" style="width: 50px">{{x.status}}</span>
+                    </td>
+                    <td>
+                      <button class="btn btn-primary" @click="detail(x.id)">
+                        รายละเอียด
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -230,20 +222,44 @@
 <script>
 import Menu from "@/components/menu.vue";
 export default {
+  data() {
+    return {
+      datas: [],
+    };
+  },
   components: {
     Menu,
   },
-  mounted() {
-  $(function () {
-  $("#example1").DataTable({
-    responsive: true,
-    autoWidth: false,
-  });
-});
-}
+  async mounted() {
+    const axios = require("axios");
+    // let self = this;
+    await axios
+      .get("http://localhost:80/selecthome.php")
+      .then((response) => {
+        response.data.forEach((element) => {
+          // console.log(element.first_name);
+          this.datas.push(element);
+        });
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+    $(function () {
+      $("#example1").DataTable({
+        responsive: true,
+        autoWidth: false,
+      });
+    });
+  },
+  methods: {
+    detail(idhome) {
+      localStorage.setItem("id", idhome);
+      console.log(idhome);
+      window.location.href = "/userrent";
+    },
+  },
 };
-
-
 </script>
 
 <style>
@@ -258,10 +274,10 @@ export default {
   /* background-color: orange; */
   border: orange;
 }
-.sizeimg{
+.sizeimg {
   width: 200px;
 }
-th{
+th {
   width: 100px;
 }
 </style>

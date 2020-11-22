@@ -301,6 +301,7 @@
                           <input
                             type="text"
                             name="numberhome"
+                            id="numberhome"
                             class="form-control"
                             aria-describedby="emailHelp"
                             required
@@ -488,10 +489,10 @@ export default {
         data.append("car", 3);
       }
       if (document.getElementById("land1").checked == true) {
-        data.append("land", 2);
+        data.append("land", "23ตร.วา");
       }
       if (document.getElementById("land2").checked == true) {
-        data.append("land", 3);
+        data.append("land", "24ตร.วา");
       }
       data.append("price", document.getElementById("pricehome").value);
 
@@ -508,6 +509,7 @@ export default {
       data.append("contract", document.getElementById("contracthome").value);
 
       data.append("Advice", document.querySelector("textarea[name=Advice]").value);
+
 
       // alert(13);
 

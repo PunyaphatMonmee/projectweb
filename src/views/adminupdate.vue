@@ -12,7 +12,13 @@
                     <div class="col-6">
                       <div class="row">
                         <div class="col-6">
-                          <input type="file" name="" id="" multiple  value="sidhvdiv"/>
+                          <input
+                            type="file"
+                            name=""
+                            id=""
+                            multiple
+                            value="sidhvdiv"
+                          />
                         </div>
                       </div>
                       <div class="row">
@@ -27,7 +33,7 @@
                           >
                             <input
                               type="radio"
-                              id="customRadioInline1"
+                              id="class1"
                               name="customRadioInline1"
                               class="custom-control-input"
                             />
@@ -42,7 +48,7 @@
                           >
                             <input
                               type="radio"
-                              id="customRadioInline2"
+                              id="class2"
                               name="customRadioInline1"
                               class="custom-control-input"
                             />
@@ -66,7 +72,7 @@
                           >
                             <input
                               type="radio"
-                              id="customRadioInline3"
+                              id="bedroom1"
                               name="customRadioInline2"
                               class="custom-control-input"
                             />
@@ -81,7 +87,7 @@
                           >
                             <input
                               type="radio"
-                              id="customRadioInline4"
+                              id="bedroom2"
                               name="customRadioInline2"
                               class="custom-control-input"
                             />
@@ -96,7 +102,7 @@
                           >
                             <input
                               type="radio"
-                              id="customRadioInline5"
+                              id="bedroom3"
                               name="customRadioInline2"
                               class="custom-control-input"
                             />
@@ -120,7 +126,7 @@
                           >
                             <input
                               type="radio"
-                              id="customRadioInline6"
+                              id="toilet1"
                               name="customRadioInline3"
                               class="custom-control-input"
                             />
@@ -130,12 +136,12 @@
                               >1</label
                             >
                           </div>
-                           <div
+                          <div
                             class="custom-control custom-radio custom-control-inline"
                           >
                             <input
                               type="radio"
-                              id="customRadioInline7"
+                              id="toilet2"
                               name="customRadioInline3"
                               class="custom-control-input"
                             />
@@ -145,12 +151,12 @@
                               >2</label
                             >
                           </div>
-                           <div
+                          <div
                             class="custom-control custom-radio custom-control-inline"
                           >
                             <input
                               type="radio"
-                              id="customRadioInline8"
+                              id="toilet3"
                               name="customRadioInline3"
                               class="custom-control-input"
                             />
@@ -174,7 +180,7 @@
                           >
                             <input
                               type="radio"
-                              id="customRadioInline9"
+                              id="car1"
                               name="customRadioInline4"
                               class="custom-control-input"
                             />
@@ -189,7 +195,7 @@
                           >
                             <input
                               type="radio"
-                              id="customRadioInline10"
+                              id="car2"
                               name="customRadioInline4"
                               class="custom-control-input"
                             />
@@ -204,7 +210,7 @@
                           >
                             <input
                               type="radio"
-                              id="customRadioInline11"
+                              id="car3"
                               name="customRadioInline4"
                               class="custom-control-input"
                             />
@@ -228,7 +234,7 @@
                           >
                             <input
                               type="radio"
-                              id="customRadioInline12"
+                              id="land1"
                               name="customRadioInline5"
                               class="custom-control-input"
                             />
@@ -238,13 +244,13 @@
                               >23 ตร.วา</label
                             >
                           </div>
-                          
+
                           <div
                             class="custom-control custom-radio custom-control-inline"
                           >
                             <input
                               type="radio"
-                              id="customRadioInline13"
+                              id="land2"
                               name="customRadioInline5"
                               class="custom-control-input"
                             />
@@ -263,15 +269,15 @@
                       </div>
                       <div class="row">
                         <div class="col x">
-                          <select class="custom-select" required>
-                            <option selected></option>
-                            <option value="1">7500</option>
-                            <option value="2">8000</option>
-                            <option value="3">8500</option>
-                            <option value="4">9000</option>
-                            <option value="5">10000</option>
-                            <option value="6">11000</option>
-                            <option value="7">12000</option>
+                          <select class="custom-select" id="price" required>
+                            <option ></option>
+                            <option value="7500">7500</option>
+                            <option value="8000">8000</option>
+                            <option value="8500">8500</option>
+                            <option value="9000">9000</option>
+                            <option value="10000">10000</option>
+                            <option value="11000">11000</option>
+                            <option value="12000">12000</option>
                           </select>
                         </div>
                       </div>
@@ -286,6 +292,7 @@
                             class="form-control"
                             rows="3"
                             required
+                            id = "equipment"
                           ></textarea>
                         </div>
                       </div>
@@ -303,6 +310,7 @@
                             class="form-control"
                             aria-describedby="emailHelp"
                             required
+                            id="numberhome"
                           />
                         </div>
                       </div>
@@ -318,6 +326,7 @@
                             class="form-control"
                             aria-describedby="emailHelp"
                             required
+                            id="phone"
                           />
                         </div>
                       </div>
@@ -333,6 +342,7 @@
                             class="form-control"
                             aria-describedby="emailHelp"
                             required
+                            id="line"
                           />
                         </div>
                       </div>
@@ -348,6 +358,7 @@
                             class="form-control"
                             aria-describedby="emailHelp"
                             required
+                            id="email"
                             style="width: 70%"
                           />
                         </div>
@@ -359,7 +370,7 @@
                       </div>
                       <div class="row">
                         <div class="col x">
-                          <select class="custom-select" required>
+                          <select class="custom-select" required id="contract">
                             <!-- <option selected>Choose...</option> -->
                             <option value=""></option>
                             <option value="1">1ปี</option>
@@ -379,6 +390,7 @@
                             class="form-control"
                             rows="3"
                             required
+                            id="Advice"
                           ></textarea>
                         </div>
                       </div>
@@ -387,22 +399,14 @@
                   <div class="row">
                     <div class="card-body">
                       <center>
-                        <button type="summit" class="btn btn-primary d-inline">
-                          summit
-                        </button>
                         <button
-                          type="reset"
-                          class="btn btn-primary d-inline ml-5"
+                          class="btn btn-primary d-inline"
+                          @click="update(datas[0].id)"
                         >
-                          reset
+                          update
                         </button>
                       </center>
                     </div>
-                    <!-- <div class="col-6 bg-danger">
-                       <button type="summit" class="btn btn-primary d-inline">
-                        reset
-                      </button>
-                    </div> -->
                   </div>
                 </form>
               </div>
@@ -415,33 +419,195 @@
 </template>
 <script>
 import Menu from "@/components/menu.vue";
-import firebase from 'firebase';
+import firebase from "firebase";
 export default {
   beforeCreate() {
     //  alert("no Logged in");
-      firebase.auth().onAuthStateChanged((user) => {
-    if (!user) {
-      //  alert("no Logged in");
-      window.location.href = "/adminLogin";
-      // this.$router.replace("/adminLogin");
-    } else {
-      alert("Logged in");
-      
-    }
-  });
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        //  alert("no Logged in");
+        window.location.href = "/adminLogin";
+        // this.$router.replace("/adminLogin");
+      } else {
+        // alert("Logged in");
+      }
+    });
   },
   components: {
     Menu,
-    
+  },
+  data() {
+    return {
+       datas: [],
+    };
   },
   mounted() {
-  $(function () {
-  $("#example1").DataTable({
-    responsive: true,
-    autoWidth: false,
-  });
-});
-}
+    const axios = require("axios");
+    var data = new FormData();
+    data.append("id", localStorage.getItem("id"));
+    axios
+      .post("http://localhost:80/selectidhome.php", data)
+      .then((response) => {
+        // console.log(response);
+        response.data.forEach((element) => {
+          this.datas.push(element);
+          if(element.class == 1){
+            document.getElementById("class1").checked = true;
+          }
+          if(element.class == 2){
+            document.getElementById("class2").checked = true;
+          }
+
+          if(element.Bedroom == 1){
+            document.getElementById("bedroom1").checked = true;
+          }
+          if(element.Bedroom == 2){
+            document.getElementById("bedroom2").checked = true;
+          }
+          if(element.Bedroom == 3){
+            document.getElementById("bedroom3").checked = true;
+          }
+
+          if(element.toilet == 1){
+            document.getElementById("toilet1").checked = true;
+          }
+          if(element.toilet == 2){
+            document.getElementById("toilet2").checked = true;
+          }
+          if(element.toilet == 3){
+            document.getElementById("toilet3").checked = true;
+          }
+
+          if(element.car == 1){
+            document.getElementById("car1").checked = true;
+          }
+          if(element.car == 2){
+            document.getElementById("car2").checked = true;
+          }
+          if(element.car == 3){
+            document.getElementById("car3").checked = true;
+          }
+
+          if(element.land == "23ตร.วา"){
+            document.getElementById("land1").checked = true;
+          }
+          if(element.land == "24ตร.วา"){
+            document.getElementById("land2").checked = true;
+          }
+
+          if(element.price == 7500){
+            document.getElementById("price").value = "7500";
+          }
+          if(element.price == 8000){
+            document.getElementById("price").value = "8000";
+          }
+          if(element.price == 8500){
+            document.getElementById("price").value = "8500";
+          }
+          if(element.price == 9000){
+            document.getElementById("price").value = "9000";
+          }
+          if(element.price == 10000){
+            document.getElementById("price").value = "10000";
+          }
+          if(element.price == 11000){
+            document.getElementById("price").value = "11000";
+          }
+          if(element.price == 12000){
+            document.getElementById("price").value = "12000";
+          }
+
+          if(element.contract == 1){
+            document.getElementById("contract").value = "1";
+          }
+          if(element.contract == 2){
+            document.getElementById("contract").value = "2";
+          }
+          if(element.contract == 3){
+            document.getElementById("contract").value = "3";
+          }
+          document.getElementById("equipment").value = element.equipment;
+          document.getElementById("numberhome").value = element.numberhome;
+          document.getElementById("phone").value = element.phone;
+          document.getElementById("line").value = element.line;
+          document.getElementById("email").value = element.email;
+          document.getElementById("Advice").value = element.Advice;
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    $(function () {
+      $("#example1").DataTable({
+        responsive: true,
+        autoWidth: false,
+      });
+    });
+    // this.datas.forEach((element) =>{
+    //     console.log(element);
+    // });
+  },
+  methods: {
+    update(idhome) {
+      const axios = require("axios").default;
+      var data = new FormData();
+      data.append("id", idhome);
+      if (document.getElementById("class1").checked == true) {
+        data.append("floor", 1);
+      }
+      if (document.getElementById("class2").checked == true) {
+        data.append("floor", 2);
+      }
+      if (document.getElementById("bedroom1").checked == true) {
+        data.append("Bedroom", 1);
+      }
+      if (document.getElementById("bedroom2").checked == true) {
+        data.append("Bedroom", 2);
+      }
+      if (document.getElementById("bedroom3").checked == true) {
+        data.append("Bedroom", 3);
+      }
+      if (document.getElementById("toilet1").checked == true) {
+        data.append("toilet", 1);
+      }
+      if (document.getElementById("toilet2").checked == true) {
+        data.append("toilet", 2);
+      }
+      if (document.getElementById("toilet3").checked == true) {
+        data.append("toilet", 3);
+      }
+      if (document.getElementById("car1").checked == true) {
+        data.append("car", 1);
+      }
+      if (document.getElementById("car2").checked == true) {
+        data.append("car", 2);
+      }
+      if (document.getElementById("car3").checked == true) {
+        data.append("car", 3);
+      }
+      if (document.getElementById("land1").checked == true) {
+        data.append("land", "23ตร.วา");
+      }
+      if (document.getElementById("land2").checked == true) {
+        data.append("land", "24ตร.วา");
+      }
+      data.append("price", document.getElementById("price").value);
+      data.append("equipment", document.querySelector("textarea[id=equipment]").value);
+      data.append("numberhome", document.querySelector("input[id=numberhome]").value);
+      data.append("phone", document.querySelector("input[id=phone]").value);
+      data.append("line", document.querySelector("input[id=line]").value);
+      data.append("email", document.querySelector("input[id=email]").value);
+      data.append("contract", document.getElementById("contract").value);
+      data.append("Advice", document.querySelector("textarea[id=Advice]").value);
+      data.forEach((element) => {
+        console.log(element);
+      });
+      axios.post("http://localhost:80/updatehome.php",data).then((response) => {
+        console.log(response.data);
+      });
+      window.location.href = "#";
+    },
+  },
 };
 </script>
 

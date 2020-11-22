@@ -108,10 +108,11 @@
                       <th>สถานะ</th>
                       <th>สนใจ</th>
                       <th>ลบ</th>
+                      
                     </tr>
                   </thead>
                   <tbody>
-                    <tr role="row" class="odd">
+                    <tr role="row" class="odd" v-for="x in datas">
                       <td tabindex="0" class="sorting_1" align="center">
                         <img
                           class="sizeimg"
@@ -119,41 +120,18 @@
                           alt="Card image cap"
                         />
                       </td>
-                      <td>204/139</td>
-                      <td>1</td>
-                      <td>8000</td>
+                      <td>{{ x.numberhome }}</td>
+                      <td>{{ x.class }}</td>
+                      <td>{{ x.price }}</td>
                       <td>
                         <span class="badge badge-success" style="width: 50px"
-                          >ว่าง</span
+                          >{{x.status}}</span
                         >
                       </td>
                       <td>
-                        <a href="adminupdate" class="btn btn-primary">เเก้ไข</a>
-                      </td>
-                      <td class="text-left align-center">
-                        <a href="#" class="btn bg-danger"
-                          ><i class="fas fa-trash"></i
-                        ></a>
-                      </td>
-                    </tr>
-                    <tr role="row" class="odd">
-                      <td tabindex="0" class="sorting_1" align="center">
-                        <img
-                          class="sizeimg"
-                          src="https://img.home.co.th/images/img_v/img_Directory/20180119-113844001-Big.jpg"
-                          alt="Card image cap"
-                        />
-                      </td>
-                      <td>204/239</td>
-                      <td>1</td>
-                      <td>7500</td>
-                      <td>
-                        <span class="badge badge-danger" style="width: 50px"
-                          >เช่าเเล้ว</span
-                        >
-                      </td>
-                      <td>
-                        <a href="adminupdate" class="btn btn-primary">เเก้ไข</a>
+                        <button class="btn btn-primary" @click="edit(x.id)">
+                        เเก้ไข
+                      </button>
                       </td>
                       <td class="text-left align-center">
                         <a href="#" class="btn bg-danger"
@@ -176,13 +154,19 @@
 import Menu from "@/components/menu.vue";
 import firebase from "firebase";
 export default {
+  data() {
+    return {
+      datas: [],
+    };
+  },
   components: {
     Menu,
   },
   beforeCreate() {
     
   },
-  mounted() {
+  async mounted() {
+    const axios = require("axios");
     firebase.auth().onAuthStateChanged((user) => {
       if (!user) {
         // alert(555555);
@@ -196,12 +180,31 @@ export default {
         console.log(user.refreshToken);
       }
     });
+    await axios
+      .get("http://localhost:80/selecthome.php")
+      .then((response) => {
+        response.data.forEach((element) => {
+          // console.log(element.first_name);
+          this.datas.push(element);
+        });
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
     $(function () {
       $("#example1").DataTable({ 
         responsive: true,
         autoWidth: false,
       });
     });
+  },
+  methods: {
+    edit(idhome) {
+      localStorage.setItem("id", idhome);
+      console.log(idhome);
+      window.location.href = "/adminupdate";
+    },
   },
 };
 </script>

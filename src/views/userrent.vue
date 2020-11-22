@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-11 mx-auto mt-3">
           <div class="card color">
-            <div class="card-body ">
+            <div class="card-body">
               <div
                 id="carouselExampleIndicators"
                 class="carousel slide"
@@ -35,7 +35,7 @@
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <img
-                      class="d-block w-100 "
+                      class="d-block w-100"
                       src="../image/home1-1.jpg"
                       alt="Third slide"
                       width="350px"
@@ -44,7 +44,7 @@
                   </div>
                   <div class="carousel-item">
                     <img
-                      class="d-block w-100 "
+                      class="d-block w-100"
                       src="../image/home1-2.jpg"
                       alt="Second slide"
                       width="350px"
@@ -53,7 +53,7 @@
                   </div>
                   <div class="carousel-item">
                     <img
-                      class="d-block w-100 "
+                      class="d-block w-100"
                       src="../image/home1-3.jpg"
                       alt="First slide"
                       width="350px"
@@ -62,7 +62,7 @@
                   </div>
                   <div class="carousel-item">
                     <img
-                      class="d-block w-100 "
+                      class="d-block w-100"
                       src="../image/home1-4.jpg"
                       alt="Four slide"
                       width="350px"
@@ -98,7 +98,6 @@
             </div>
             <div class="row">
               <div class="col ml-5">
-                
                 <div
                   class="card mt-3 mx-auto bg-white box"
                   style="width: 30rem"
@@ -117,6 +116,8 @@
                           class="form-control"
                           aria-describedby="emailHelp"
                           required
+                          id="bedroom"
+                          readonly
                         />
                       </div>
                       <div class="col-6">
@@ -125,7 +126,8 @@
                           type="text"
                           class="form-control"
                           aria-describedby="emailHelp"
-                          required
+                          id="toilet"
+                          readonly
                         />
                       </div>
                     </div>
@@ -136,7 +138,8 @@
                           type="text"
                           class="form-control"
                           aria-describedby="emailHelp"
-                          required
+                          id="car"
+                          readonly
                         />
                       </div>
                       <div class="col-6 mt-2">
@@ -145,7 +148,8 @@
                           type="text"
                           class="form-control"
                           aria-describedby="emailHelp"
-                          required
+                          readonly
+                          id="land"
                         />
                       </div>
                     </div>
@@ -156,7 +160,8 @@
                           type="text"
                           class="form-control"
                           aria-describedby="emailHelp"
-                          required
+                          readonly
+                          id="price"
                         />
                       </div>
                       <div class="col-6 mt-2">
@@ -165,7 +170,8 @@
                           type="text"
                           class="form-control"
                           aria-describedby="emailHelp"
-                          required
+                          readonly
+                          id="contract"
                         />
                       </div>
                     </div>
@@ -175,7 +181,8 @@
                         <textarea
                           class="form-control"
                           rows="3"
-                          required
+                          readonly
+                          id="equipment"
                         ></textarea>
                       </div>
                     </div>
@@ -185,37 +192,11 @@
                         <textarea
                           class="form-control"
                           rows="3"
-                          required
+                          readonly
+                          id="Advice"
                         ></textarea>
                       </div>
                     </div>
-
-                    <!-- <p class="card-text">
-                  ให้เช่า ทาวน์เฮ้าส์ หมู่บ้าน เซนสิริ ทาวน์ อ่าวอุดม
-                </p>
-                <p>
-                  ใกล้ ม.เกษตร ประตู 3 ศรีราชาห่างจาก สุขุมวิทเพียง 800 เมตร
-                </p>
-                <p>หน้ากว้าง 6 เมตร จอดรถในบ้านได้</p>
-                <p>อยู่โครงการเฟส 2 บ้าน 2 ห้องนอน 1 ห้องน้ำ</p>
-                <p>ต่อเติมหลังคาโรงจอดรถ และหลังบ้านแล้ว</p>
-                <p>
-                  แอร์ มุ้งลวด เหล็กดัด ผ้าม่าน ถังสำรองน้ำ ให้เช่าเดือนละ 6,500
-                  บาท
-                </p>
-                <p>มี รปภ. 24 ชม. สโมสร ถนนกว้างมาก 20 เมตร</p>
-                <p>
-                  ใกล้ ท่าเรือแหลมฉบัง โรบินสัน ฮาร์เบอร์มอล 7-11
-                  โรงพยาบาลแหลมฉบัง พญาไทย สมิตเวช
-                </p>
-                <p>ขอรับเฉพาะลูกค้าที่ไม่มีสัตว์เลี้ยงค่ะ</p>
-                <p>สัญญาอย่างน้อย 1 ปี นัดดูบ้านได้ทุกวันค่ะ</p> -->
-
-                    <!-- <div class="row">
-                <div class="col text-center">
-                  <a href="../userrent" class="btn btn-primary">งง</a>
-                </div>
-              </div> -->
                   </div>
                 </div>
               </div>
@@ -238,7 +219,8 @@
                           class="form-control"
                           style="width: 70%"
                           aria-describedby="emailHelp"
-                          required
+                          readonly
+                          id="phone"
                         />
                       </div>
                     </div>
@@ -250,7 +232,8 @@
                           class="form-control"
                           style="width: 70%"
                           aria-describedby="emailHelp"
-                          required
+                          readonly
+                          id="line"
                         />
                       </div>
                     </div>
@@ -262,7 +245,8 @@
                           class="form-control"
                           style="width: 70%"
                           aria-describedby="emailHelp"
-                          required
+                          readonly
+                          id="email"
                         />
                       </div>
                     </div>
@@ -280,6 +264,39 @@
 import Menu from "@/components/menu.vue";
 import firebase from "firebase";
 export default {
+  data() {
+    return {
+      // datas: [],
+    };
+  },
+  mounted() {
+    const axios = require("axios");
+    var data = new FormData();
+    data.append("id", localStorage.getItem("id"));
+    axios
+      .post("http://localhost:80/selectidhome.php", data)
+      .then((response) => {
+        // console.log(response);
+        response.data.forEach((element) => {
+          // this.datas.push(element);
+          console.log(element);
+          document.getElementById("bedroom").value = element.Bedroom + "ห้อง";
+          document.getElementById("toilet").value = element.toilet + "ห้อง";
+          document.getElementById("car").value = element.car + "ที่";
+          document.getElementById("land").value = element.land;
+          document.getElementById("price").value = element.price;
+          document.getElementById("contract").value = element.contract + "ปี";
+          document.getElementById("Advice").value = "ควรอ่าน: " + element.Advice;
+          document.getElementById("equipment").value = element.equipment;
+          document.getElementById("phone").value = element.phone;
+          document.getElementById("line").value = element.line;
+          document.getElementById("email").value = element.email;
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  },
   components: {
     Menu,
   },
@@ -287,7 +304,6 @@ export default {
 </script>
 
 <style>
-
 .f1 {
   margin-top: 50px;
 }
@@ -307,7 +323,7 @@ export default {
   /* background-color: rgb(177, 177, 177); */
   border-radius: 25px;
 }
-.color{
+.color {
   background-color: rgb(196, 196, 196);
 }
 .bg {
