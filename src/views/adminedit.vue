@@ -129,7 +129,7 @@ export default {
       });
       // localStorage.setItem("id", idhome);
       console.log(idhome);
-      window.location.href = "#";
+      window.location.href = "/adminedit";
     }
   },
 };

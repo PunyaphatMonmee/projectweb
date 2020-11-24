@@ -1,13 +1,6 @@
 <template>
   <form action="">
     <div class="row-6">
-      <!-- <img
-        class="mt-5 mb-5 col-sm-6 mx-auto"
-        src="../image/logo.png"
-        alt=""
-        width="300"
-        height="150"
-      /> -->
       <img
         src="../image/logowin.png"
         class="mx-auto"
@@ -89,7 +82,8 @@ export default {
           (err) => {
             // alert(err.message+"กรุณาใส่Email")
             // alert("กรุณาใส่EmailเเละPasswordใหม่");
-            swal("NO Authorization! Please Check User and Password", "error");
+            swal("NO Authorization! Please Check User and Password", "You clicked the button!", "error");
+            // window.location.href = "/adminlogin";
           }
         );
       e.preventDefault();
