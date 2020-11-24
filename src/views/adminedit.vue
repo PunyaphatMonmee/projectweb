@@ -134,9 +134,8 @@
                       </button>
                       </td>
                       <td class="text-left align-center">
-                        <a href="#" class="btn bg-danger"
-                          ><i class="fas fa-trash"></i
-                        ></a>
+                        <button @click="deletelist(x.id)" class="btn bg-danger"><i class="fas fa-trash"></i
+                        ></button>
                       </td>
                     </tr>
                   </tbody>
@@ -184,20 +183,23 @@ export default {
       .get("http://localhost:80/selecthome.php")
       .then((response) => {
         response.data.forEach((element) => {
-          // console.log(element.first_name);
           this.datas.push(element);
         });
       })
       .catch(function (error) {
-        // handle error
         console.log(error);
-      });
+      }
+      .get("http://localhost:80/deletehome.php")
+      
+      );
+      
     $(function () {
       $("#example1").DataTable({ 
         responsive: true,
         autoWidth: false,
       });
     });
+    
   },
   methods: {
     edit(idhome) {
@@ -205,6 +207,12 @@ export default {
       console.log(idhome);
       window.location.href = "/adminupdate";
     },
+    deletelist(idhome) {
+      // localStorage.setItem("id", idhome);
+      
+      console.log(idhome);
+      window.location.href = "#";
+    }
   },
 };
 </script>
