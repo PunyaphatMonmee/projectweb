@@ -270,7 +270,7 @@
                       <div class="row">
                         <div class="col x">
                           <select class="custom-select" id="price" required>
-                            <option ></option>
+                            <option value="" disabled selected>ราคา</option>
                             <option value="7500">7500</option>
                             <option value="8000">8000</option>
                             <option value="8500">8500</option>
@@ -372,7 +372,7 @@
                         <div class="col x">
                           <select class="custom-select" required id="contract">
                             <!-- <option selected>Choose...</option> -->
-                            <option value=""></option>
+                            <option value="" disabled selected>กี่ปี</option>
                             <option value="1">1ปี</option>
                             <option value="2">2ปี</option>
                             <option value="3">3ปี</option>

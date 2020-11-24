@@ -91,6 +91,30 @@ const routes = [{
         component: () =>
             import ('../views/usermain.vue')
     }, {
+        path: '/usermainvar',
+        name: 'usermainvar',
+
+        component: () =>
+            import ('../views/usermainvar.vue')
+    }, {
+        path: '/usermainmaivar',
+        name: 'usermainmaivar',
+
+        component: () =>
+            import ('../views/usermainmaivar.vue')
+    }, {
+        path: '/userone',
+        name: 'userone',
+
+        component: () =>
+            import ('../views/userone.vue')
+    }, {
+        path: '/usertwo',
+        name: 'usertwo',
+
+        component: () =>
+            import ('../views/usertwo.vue')
+    }, {
         path: '/userrent',
         name: 'userrent',
 

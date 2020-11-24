@@ -201,6 +201,7 @@
                     <td>{{ x.class }}</td>
                     <td>{{ x.price }}</td>
                     <td>
+                      <!-- <span class="badge badge-success" style="width: 50px">{{x.status}}</span> -->
                       <span  style="width: 50px">{{x.status}}</span>
                     </td>
                     <td>
@@ -233,8 +234,12 @@ export default {
   async mounted() {
     const axios = require("axios");
     // let self = this;
+    
+    //   var data = 'ว่าง';
+    //   console.log(data);
     await axios
-      .get("http://localhost:80/selecthome.php")
+    
+      .get("http://localhost:80/selectpage2.php")
       .then((response) => {
         response.data.forEach((element) => {
           // console.log(element.first_name);

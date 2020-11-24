@@ -68,7 +68,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item has-treeview text-left">
-              <a href="#" class="nav-link " style="color: orange">
+              <a href=""  class="nav-link " style="color: orange">
                 <i class="far fa-address-book nav-icon"></i>
                 <p>
                   สถานะ
@@ -77,13 +77,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.html" class="nav-link active">
+                  <a href="../usermainvar" class="nav-link active">
                     <i class="fas fa-door-open nav-icon"></i>
                     <p>ว่างให้เช่า</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./index2.html" class="nav-link active">
+                  <a href="../usermainmaivar" class="nav-link active">
                     <i class="fas fa-door-closed nav-icon"></i>
                     <p>ไม่ว่างให้เช่า</p>
                   </a>
@@ -101,13 +101,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.html" class="nav-link active">
+                  <a href="../userone" class="nav-link active">
                     <i class="fas fa-user nav-icon"></i>
                     <p>1ชั้น</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./index2.html" class="nav-link active">
+                  <a href="../usertwo" class="nav-link active">
                     <!-- <i class="far fa-users nav-icon"></i> -->
                     <i class="fas fa-users nav-icon"></i>
 
@@ -138,10 +138,12 @@
 
 <script>
 import firebase from 'firebase'
+const axios = require("axios");
 export default {
   data() {
     return {
-      islogin:false
+      islogin:false,
+      datas: []
     }
   },
   mounted() {
@@ -155,6 +157,7 @@ export default {
         this.islogin = true;
       }
     });
+    
   },
 }
 </script>

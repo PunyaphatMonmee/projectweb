@@ -261,8 +261,8 @@
                       </div>
                       <div class="row">
                         <div class="col x">
-                          <select class="custom-select" required name="price" id="pricehome">
-                            <option selected></option>
+                          <select class="custom-select"  name="price" id="pricehome">
+                            <option value="ราคา" disabled selected>ราคา</option>
                             <option value="7500">7500</option>
                             <option value="8000">8000</option>
                             <option value="8500">8500</option>
@@ -285,7 +285,7 @@
                             rows="3"
                             name="equipment"
                             id="equipmenthome"
-                            required
+                            
                           ></textarea>
                         </div>
                       </div>
@@ -304,7 +304,7 @@
                             id="numberhome"
                             class="form-control"
                             aria-describedby="emailHelp"
-                            required
+                            
                           />
                         </div>
                       </div>
@@ -320,7 +320,7 @@
                             name="phone"
                             class="form-control"
                             aria-describedby="emailHelp"
-                            required
+                            
                           />
                         </div>
                       </div>
@@ -336,7 +336,7 @@
                             class="form-control"
                             name="line"
                             aria-describedby="emailHelp"
-                            required
+                            
                           />
                         </div>
                       </div>
@@ -352,7 +352,7 @@
                             class="form-control"
                             name="email"
                             aria-describedby="emailHelp"
-                            required
+                            
                             style="width: 70%"
                           />
                         </div>
@@ -366,12 +366,12 @@
                         <div class="col x">
                           <select
                             class="custom-select"
-                            required
+                            
                             name="contract"
                             id = "contracthome"
                           >
                             <!-- <option selected>Choose...</option> -->
-                            <option value=""></option>
+                            <option value="กี่ปี" disabled selected>กี่ปี</option>
                             <option value="1ปี">1ปี</option>
                             <option value="2ปี">2ปี</option>
                             <option value="3ปี">3ปี</option>
@@ -389,7 +389,7 @@
                             class="form-control"
                             rows="3"
                             name="Advice"
-                            required
+                            
                           ></textarea>
                         </div>
                       </div>
@@ -426,6 +426,7 @@
 <script>
 import Menu from "@/components/menu.vue";
 import firebase from "firebase";
+import swal from 'sweetalert';
 export default {
   beforeCreate() {
     //  alert("no Logged in");
@@ -455,6 +456,7 @@ export default {
     addhome() {
       const axios = require("axios").default;
       var data = new FormData();
+      var count;
       if (document.getElementById("class1").checked == true) {
         data.append("floor", 1);
       }
@@ -509,18 +511,27 @@ export default {
       data.append("contract", document.getElementById("contracthome").value);
 
       data.append("Advice", document.querySelector("textarea[name=Advice]").value);
-
-
-      // alert(13);
-
-      // data.forEach((element) => {
-      //   console.log(element);
+      data.forEach((element) => {
+        console.log(element);
+      });
+      // if(1){
+      //   data.forEach((element) => {
+      //   count++;
       // });
-
-      alert(data);
+      // }
+      // if(count == 13){
+      //   axios.post("http://localhost:80/inserthome.php", data).then((response) => {
+      //   console.log(response);
+      // });
+      // }
+      // else{
+      //   swal("ใส่ข้อมูลให้ครบ", "You clicked the button!", "warning");
+      //   window.location.href = "#";
+      // }
       axios.post("http://localhost:80/inserthome.php", data).then((response) => {
         console.log(response);
       });
+      
     },
   },
 };
