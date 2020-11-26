@@ -7,7 +7,7 @@
           <div class="col">
             <div class="card bg-white">
               <div class="card-body">
-                <form action="">
+                <!-- <form action="#"> -->
                   <div class="row">
                     <div class="col-6">
                       <div class="row">
@@ -318,6 +318,7 @@
                           <input
                             type="text"
                             name="phone"
+                            id = "phone"
                             class="form-control"
                             aria-describedby="emailHelp"
                             
@@ -335,6 +336,7 @@
                             type="text"
                             class="form-control"
                             name="line"
+                            id="line"
                             aria-describedby="emailHelp"
                             
                           />
@@ -351,6 +353,7 @@
                             type="email"
                             class="form-control"
                             name="email"
+                            id="email"
                             aria-describedby="emailHelp"
                             
                             style="width: 70%"
@@ -375,6 +378,7 @@
                             <option value="1ปี">1ปี</option>
                             <option value="2ปี">2ปี</option>
                             <option value="3ปี">3ปี</option>
+                            <option value="4ปี">4ปี</option>
                           </select>
                         </div>
                       </div>
@@ -389,7 +393,7 @@
                             class="form-control"
                             rows="3"
                             name="Advice"
-                            
+                            id="Advice"
                           ></textarea>
                         </div>
                       </div>
@@ -405,7 +409,7 @@
                           summit
                         </button>
                         <button
-                          type="reset"
+                          @click="resetdata(5)"
                           class="btn btn-primary d-inline ml-5"
                         >
                           reset
@@ -413,7 +417,7 @@
                       </center>
                     </div>
                   </div>
-                </form>
+                <!-- </form> -->
               </div>
             </div>
           </div>
@@ -453,19 +457,68 @@ export default {
     });
   },
   methods: {
+    resetdata(a){
+        const axios = require("axios").default;
+        var data = new FormData();
+         console.log(a);
+         document.getElementById("class1").checked = false;
+         document.getElementById("class2").checked = false; 
+        //  document.getElementById("Bedroom1").checked = false;
+         document.getElementById("Bedroom2").checked = false;
+         document.getElementById("Bedroom3").checked = false;
+         document.getElementById("toilet1").checked = false;
+         document.getElementById("toilet2").checked = false;
+         document.getElementById("toilet3").checked = false;
+         document.getElementById("car1").checked = false;
+        //  document.getElementById("car2").checked = false;
+        //  document.getElementById("car3").checked = false;
+         document.getElementById("land1").checked = false;
+         document.getElementById("land2").checked = false;
+         document.getElementById("pricehome").value = "ราคา";
+         document.getElementById("equipmenthome").value = "";
+         document.getElementById("numberhome").value = "";
+         document.getElementById("phone").value = "";
+         document.getElementById("line").value = "";
+         document.getElementById("email").value = "";
+         document.getElementById("contracthome").value = "กี่ปี";
+         document.getElementById("Advice").value = "";
+    },
     addhome() {
       const axios = require("axios").default;
       var data = new FormData();
-      var count;
-      if (document.getElementById("class1").checked == true) {
+      if(document.getElementsByName("class1").checked == false ||
+        //  document.getElementById("class2").checked == false || 
+         document.getElementsByName("customRadioInline7").checked == false ||
+        //  document.getElementById("Bedroom2").checked == false ||
+        //  document.getElementById("Bedroom3").checked == false ||
+         document.getElementsByName("customRadioInline8").checked == false ||
+        //  document.getElementById("toilet2").checked == false ||
+        //  document.getElementById("toilet3").checked == false ||
+         document.getElementsByName("customRadioInline9").checked == false ||
+        //  document.getElementById("car2").checked == false ||
+        //  document.getElementById("car3").checked == false ||
+         document.getElementsByName("customRadioInline10").checked == false ||
+        //  document.getElementById("land2").checked == false ||
+         document.getElementById("pricehome").value == "ราคา" ||
+         document.getElementById("equipmenthome").value == "" ||
+         document.getElementById("numberhome").value == "" ||
+         document.getElementById("phone").value == "" ||
+         document.getElementById("line").value == "" ||
+         document.getElementById("email").value == "" ||
+         document.getElementById("contracthome").value == "กี่ปี" ||
+         document.getElementById("Advice").value == "" ){
+          swal("ใส่ข้อมูลให้ครบ", "You clicked the button!", "warning");
+      }
+      else{
+          if (document.getElementById("class1").checked == true) {
         data.append("floor", 1);
       }
       if (document.getElementById("class2").checked == true) {
         data.append("floor", 2);
       }
-      if (document.getElementById("Bedroom1").checked == true) {
-        data.append("Bedroom", 1);
-      }
+      // if (document.getElementById("Bedroom1").checked == true) {
+      //   data.append("Bedroom", 1);
+      // }
       if (document.getElementById("Bedroom2").checked == true) {
         data.append("Bedroom", 2);
       }
@@ -511,27 +564,21 @@ export default {
       data.append("contract", document.getElementById("contracthome").value);
 
       data.append("Advice", document.querySelector("textarea[name=Advice]").value);
+           
       data.forEach((element) => {
         console.log(element);
       });
-      // if(1){
-      //   data.forEach((element) => {
-      //   count++;
-      // });
-      // }
-      // if(count == 13){
-      //   axios.post("http://localhost:80/inserthome.php", data).then((response) => {
-      //   console.log(response);
-      // });
-      // }
-      // else{
-      //   swal("ใส่ข้อมูลให้ครบ", "You clicked the button!", "warning");
-      //   window.location.href = "#";
-      // }
-      axios.post("http://localhost:80/inserthome.php", data).then((response) => {
-        console.log(response);
-      });
-      
+        axios.post("http://localhost:80/inserthome.php", data).then((response) => {
+          console.log(response);
+        });
+        swal("ใส่ข้อมูลครบแล้ว", "You clicked the button!", "success")
+        .then(() => {
+          setTimeout(function() {
+            window.location.href = "/adminedit";
+          }, 200);
+
+        });
+      }
     },
   },
 };

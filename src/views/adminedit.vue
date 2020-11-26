@@ -38,7 +38,7 @@
                       <td>{{ x.class }}</td>
                       <td>{{ x.price }}</td>
                       <td>
-                        <span  style="width: 50px"
+                        <span  style="width: 50px" id="statuscolor" 
                           >{{x.status}}</span
                         >
                       </td>
@@ -98,12 +98,19 @@ export default {
       .then((response) => {
         response.data.forEach((element) => {
           this.datas.push(element);
+          // console.log(element.status);
+          
+          if (element.status == 'ว่าง') {
+              console.log(5555);
+              // document.getElementById("statuscolor"). = "blue";
+          } 
         });
       })
       .catch(function (error) {
         console.log(error);
       }
       );
+      
       
     $(function () {
       $("#example1").DataTable({ 
@@ -131,6 +138,7 @@ export default {
       console.log(idhome);
       window.location.href = "/adminedit";
     }
+    
   },
 };
 </script>

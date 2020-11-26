@@ -82,7 +82,13 @@ export default {
           (err) => {
             // alert(err.message+"กรุณาใส่Email")
             // alert("กรุณาใส่EmailเเละPasswordใหม่");
-            swal("NO Authorization! Please Check User and Password", "You clicked the button!", "error");
+            swal("NO Authorization! Please Check User and Password", "You clicked the button!", "error")
+            .then(() => {
+          setTimeout(function() {
+            window.location.href = "/adminlogin";
+          }, 200);
+
+        });
             // window.location.href = "/adminlogin";
           }
         );

@@ -7,7 +7,7 @@
           <div class="col">
             <div class="card bg-white">
               <div class="card-body">
-                <form action="">
+                <!-- <form action=""> -->
                   <div class="row">
                     <div class="col-6">
                       <div class="row">
@@ -36,10 +36,11 @@
                               id="class1"
                               name="customRadioInline1"
                               class="custom-control-input"
+                              value="1"
                             />
                             <label
                               class="custom-control-label"
-                              for="customRadioInline1"
+                              for="class1"
                               >1</label
                             >
                           </div>
@@ -54,7 +55,7 @@
                             />
                             <label
                               class="custom-control-label"
-                              for="customRadioInline2"
+                              for="class2"
                               >2</label
                             >
                           </div>
@@ -78,7 +79,7 @@
                             />
                             <label
                               class="custom-control-label"
-                              for="customRadioInline3"
+                              for="bedroom1"
                               >1</label
                             >
                           </div>
@@ -93,7 +94,7 @@
                             />
                             <label
                               class="custom-control-label"
-                              for="customRadioInline4"
+                              for="bedroom2"
                               >2</label
                             >
                           </div>
@@ -108,7 +109,7 @@
                             />
                             <label
                               class="custom-control-label"
-                              for="customRadioInline5"
+                              for="bedroom3"
                               >3</label
                             >
                           </div>
@@ -132,7 +133,7 @@
                             />
                             <label
                               class="custom-control-label"
-                              for="customRadioInline6"
+                              for="toilet1"
                               >1</label
                             >
                           </div>
@@ -147,7 +148,7 @@
                             />
                             <label
                               class="custom-control-label"
-                              for="customRadioInline7"
+                              for="toilet2"
                               >2</label
                             >
                           </div>
@@ -162,7 +163,7 @@
                             />
                             <label
                               class="custom-control-label"
-                              for="customRadioInline8"
+                              for="toilet3"
                               >3</label
                             >
                           </div>
@@ -186,7 +187,7 @@
                             />
                             <label
                               class="custom-control-label"
-                              for="customRadioInline9"
+                              for="car1"
                               >1</label
                             >
                           </div>
@@ -201,7 +202,7 @@
                             />
                             <label
                               class="custom-control-label"
-                              for="customRadioInline10"
+                              for="car2"
                               >2</label
                             >
                           </div>
@@ -216,7 +217,7 @@
                             />
                             <label
                               class="custom-control-label"
-                              for="customRadioInline11"
+                              for="car3"
                               >3</label
                             >
                           </div>
@@ -240,7 +241,7 @@
                             />
                             <label
                               class="custom-control-label"
-                              for="customRadioInline12"
+                              for="land1"
                               >23 ตร.วา</label
                             >
                           </div>
@@ -256,7 +257,7 @@
                             />
                             <label
                               class="custom-control-label"
-                              for="customRadioInline13"
+                              for="land2"
                               >24 ตร.วา</label
                             >
                           </div>
@@ -376,6 +377,7 @@
                             <option value="1">1ปี</option>
                             <option value="2">2ปี</option>
                             <option value="3">3ปี</option>
+                            <option value="4">ปี</option>
                           </select>
                         </div>
                       </div>
@@ -408,7 +410,7 @@
                       </center>
                     </div>
                   </div>
-                </form>
+                <!-- </form> -->
               </div>
             </div>
           </div>
@@ -448,7 +450,7 @@ export default {
     axios
       .post("http://localhost:80/selectidhome.php", data)
       .then((response) => {
-        // console.log(response);
+        console.log(response);
         response.data.forEach((element) => {
           this.datas.push(element);
           if(element.class == 1){
@@ -457,7 +459,6 @@ export default {
           if(element.class == 2){
             document.getElementById("class2").checked = true;
           }
-
           if(element.Bedroom == 1){
             document.getElementById("bedroom1").checked = true;
           }
@@ -467,7 +468,6 @@ export default {
           if(element.Bedroom == 3){
             document.getElementById("bedroom3").checked = true;
           }
-
           if(element.toilet == 1){
             document.getElementById("toilet1").checked = true;
           }
@@ -477,7 +477,6 @@ export default {
           if(element.toilet == 3){
             document.getElementById("toilet3").checked = true;
           }
-
           if(element.car == 1){
             document.getElementById("car1").checked = true;
           }
@@ -487,14 +486,12 @@ export default {
           if(element.car == 3){
             document.getElementById("car3").checked = true;
           }
-
           if(element.land == "23ตร.วา"){
             document.getElementById("land1").checked = true;
           }
           if(element.land == "24ตร.วา"){
             document.getElementById("land2").checked = true;
           }
-
           if(element.price == 7500){
             document.getElementById("price").value = "7500";
           }
@@ -516,7 +513,6 @@ export default {
           if(element.price == 12000){
             document.getElementById("price").value = "12000";
           }
-
           if(element.contract == 1){
             document.getElementById("contract").value = "1";
           }
@@ -543,6 +539,7 @@ export default {
         autoWidth: false,
       });
     });
+    
     // this.datas.forEach((element) =>{
     //     console.log(element);
     // });
@@ -605,7 +602,7 @@ export default {
       axios.post("http://localhost:80/updatehome.php",data).then((response) => {
         console.log(response.data);
       });
-      window.location.href = "#";
+      window.location.href = "/adminedit";
     },
   },
 };
@@ -617,3 +614,4 @@ export default {
   width: 70%;
 }
 </style>
+
