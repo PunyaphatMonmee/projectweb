@@ -12,13 +12,7 @@
                     <div class="col-6">
                       <div class="row">
                         <div class="col-6">
-                          <input
-                            type="file"
-                            name=""
-                            id=""
-                            multiple
-                            value="sidhvdiv"
-                          />
+                          <input type="file" id="files" name="files[]" multiple />
                         </div>
                       </div>
                       <div class="row">
@@ -37,6 +31,7 @@
                               name="customRadioInline1"
                               class="custom-control-input"
                               value="1"
+                              @click="onefloot"
                             />
                             <label
                               class="custom-control-label"
@@ -52,6 +47,7 @@
                               id="class2"
                               name="customRadioInline1"
                               class="custom-control-input"
+                              @click="twofloot"
                             />
                             <label
                               class="custom-control-label"
@@ -238,6 +234,7 @@
                               id="land1"
                               name="customRadioInline5"
                               class="custom-control-input"
+                              @click="flootone"
                             />
                             <label
                               class="custom-control-label"
@@ -254,6 +251,7 @@
                               id="land2"
                               name="customRadioInline5"
                               class="custom-control-input"
+                              @click="floottwo"
                             />
                             <label
                               class="custom-control-label"
@@ -422,6 +420,7 @@
 <script>
 import Menu from "@/components/menu.vue";
 import firebase from "firebase";
+import swal from 'sweetalert';
 export default {
   beforeCreate() {
     //  alert("no Logged in");
@@ -545,10 +544,99 @@ export default {
     // });
   },
   methods: {
-    update(idhome) {
+    onefloot(){
+      if(document.getElementById("class1").checked == true){
+        document.getElementById("land1").checked = true;
+      }
+      
+    },
+    flootone(){
+      if(document.getElementById("land1").checked == true){
+        document.getElementById("class1").checked = true;
+      }
+      
+    },
+    twofloot(){
+      if(document.getElementById("class2").checked == true){
+        document.getElementById("land2").checked = true;
+      }
+
+    },floottwo(){
+      if(document.getElementById("land2").checked == true){
+        document.getElementById("class2").checked = true;
+      }
+      
+    },
+    async update(idhome) {
+      var storageRef = firebase.storage().ref("img");
+      // Get the file from DOM
+      var file = document.getElementById("files").files[0];
+      var file1 = document.getElementById("files").files[1];
+      var file2 = document.getElementById("files").files[2];
+      console.log(file.name);
+      console.log(file1.name);
+      console.log(file2.name);
+      // console.log(file2.name);
+      //dynamically s1et reference to the file name
+      var thisRef = storageRef.child(file.name);
+      //put request upload file to firebase storage
+      await thisRef.put(file).then((snapshot) => {
+        // swal("Good job!", "You clicked the button!", "success");
+        console.log("Uploaded a blob or file!");
+      });
+       thisRef = storageRef.child(file1.name);
+      //put request upload file to firebase storage
+      await thisRef.put(file1).then((snapshot) => {
+        // swal("Good job!", "You clicked the button!", "success");
+        console.log("Uploaded a blob or file!");
+      });
+       thisRef = storageRef.child(file2.name);
+      //put request upload file to firebase storage
+      await thisRef.put(file2).then((snapshot) => {
+        // swal("Good job!", "You clicked the button!", "success");
+        console.log("Uploaded a blob or file!");
+      });
+      const storage = firebase.storage();
+      // let linkimg = "";
+      // Get metadata properties
+      let linkimg;
+      let self = this;
+      await storage
+        .ref("img")
+        .child(file.name)
+        .getDownloadURL()
+        .then((url) => {
+          // console.log(typeof url);
+          // console.log(url);
+          self.linkimg = url;
+          self.datas.push(url);
+
+          storage
+            .ref("img")
+            .child(file1.name)
+            .getDownloadURL()
+            .then((url) => {
+              // console.log(typeof url);
+              // console.log(url);
+              self.linkimg = url;
+              self.datas.push(url);
+
+              storage
+                .ref("img")
+                .child(file2.name)
+                .getDownloadURL()
+                .then((url) => {
+                  // console.log(typeof url);
+                  // console.log(url);
+                  self.linkimg = url;
+                  self.datas.push(url);
+                });
+            });
+        });
       const axios = require("axios").default;
       var data = new FormData();
       data.append("id", idhome);
+      
       if (document.getElementById("class1").checked == true) {
         data.append("floor", 1);
       }
@@ -602,7 +690,14 @@ export default {
       axios.post("http://localhost:80/updatehome.php",data).then((response) => {
         console.log(response.data);
       });
-      window.location.href = "/adminedit";
+      swal("อัพเดทข้อมูลครบแล้ว", "You clicked the button!", "success").then(
+          () => {
+            setTimeout(function () {
+              window.location.href = "#";
+            }, 200);
+          }
+        );
+      // window.location.href = "/adminedit";
     },
   },
 };
