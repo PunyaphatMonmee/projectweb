@@ -17,6 +17,42 @@
                     </div>
                     <div class="row">
                       <div class="col-5 mt-3">
+                        <p>สถานะ</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col x">
+                        <div
+                          class="custom-control custom-radio custom-control-inline"
+                        >
+                          <input
+                            type="radio"
+                            id="statusvar"
+                            name="customRadioInline1"
+                            class="custom-control-input"
+                            value="ว่าง"
+                          />
+                          <label class="custom-control-label" for="statusvar"
+                            >ว่าง</label
+                          >
+                        </div>
+                        <div
+                          class="custom-control custom-radio custom-control-inline"
+                        >
+                          <input
+                            type="radio"
+                            id="statusmaivar"
+                            name="customRadioInline1"
+                            class="custom-control-input"
+                          />
+                          <label class="custom-control-label" for="statusmaivar"
+                            >ไม่ว่าง</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-5 mt-3">
                         <p>จำนวนชั้น</p>
                       </div>
                     </div>
