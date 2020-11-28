@@ -193,8 +193,8 @@
                     <td tabindex="0" class="sorting_1" align="center">
                       <img
                         class="sizeimg"
-                        src="https://img.home.co.th/images/img_v/img_Directory/20180119-113844001-Big.jpg"
-                        alt="Card image cap"
+                       :src="x.image1"
+                        alt="Card image home"
                       />
                     </td>
                     <td>{{ x.numberhome }}</td>

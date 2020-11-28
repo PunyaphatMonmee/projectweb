@@ -25,7 +25,7 @@
                 data-slide-to="2"
               ></li>
             </ol>
-            <div class="carousel-inner">
+            <div class="carousel-inner" >
               <div class="carousel-item active">
                 <img
                   class="d-block w-100"
@@ -44,7 +44,7 @@
                   height="300px"
                 />
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item" >
                 <img
                   class="d-block w-100"
                   src="https://img.home.co.th/images/img_v/img_Directory/20180119-113844001-Big.jpg"
@@ -80,94 +80,7 @@
             </a>
           </div>
         </div>
-        <!-- <div class="card-footer text-muted"></div> -->
       </div>
-      <!-- <div class="row mt-3 ml-3 mr-3">
-        <div class="col-3">
-          <div class="card" style="width: 18rem">
-            <img
-              class="card-img-top"
-              src="https://img.home.co.th/images/img_v/img_Directory/20180119-113844001-Big.jpg"
-              alt="Card image cap"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <div class="row">
-                <div class="col text-center">
-                  <a href="../userrent" class="btn btn-primary">รายละเอียด</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card" style="width: 18rem">
-            <img
-              class="card-img-top"
-              src="https://img.home.co.th/images/img_v/img_Directory/20180119-113844001-Big.jpg"
-              alt="Card image cap"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <div class="row">
-                <div class="col text-center">
-                  <a href="../userrent" class="btn btn-primary">รายละเอียด</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card" style="width: 18rem">
-            <img
-              class="card-img-top"
-              src="https://img.home.co.th/images/img_v/img_Directory/20180119-113844001-Big.jpg"
-              alt="Card image cap"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <div class="row">
-                <div class="col text-center">
-                  <a href="../userrent" class="btn btn-primary">รายละเอียด</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card" style="width: 18rem">
-            <img
-              class="card-img-top"
-              src="https://img.home.co.th/images/img_v/img_Directory/20180119-113844001-Big.jpg"
-              alt="Card image cap"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <div class="row">
-                <div class="col text-center">
-                  <a href="../userrent" class="btn btn-primary">รายละเอียด</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
       <div class="card-body">
         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
           <div class="row">
@@ -193,8 +106,8 @@
                     <td tabindex="0" class="sorting_1" align="center">
                       <img
                         class="sizeimg"
-                        src="https://img.home.co.th/images/img_v/img_Directory/20180119-113844001-Big.jpg"
-                        alt="Card image cap"
+                        :src="x.image1"
+                        alt="Card image home"
                       />
                     </td>
                     <td>{{ x.numberhome }}</td>

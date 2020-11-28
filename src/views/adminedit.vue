@@ -4,12 +4,12 @@
     <div class="content-wrapper">
       <div class="card">
         <div class="card-body">
-          <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+          <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 ">
             <div class="row">
               <div class="col-sm-12">
                 <table
                   id="example1"
-                  class="table table-bordered table-striped dataTable dtr-inline"
+                  class="table table-bordered table-striped dataTable dtr-inline box"
                   role="grid"
                   aria-describedby="example1_info"
                 >
@@ -30,7 +30,7 @@
                       <td tabindex="0" class="sorting_1" align="center">
                         <img
                           class="sizeimg"
-                          src="https://img.home.co.th/images/img_v/img_Directory/20180119-113844001-Big.jpg"
+                          :src="x.image1"
                           alt="Card image cap"
                         />
                       </td>
@@ -136,7 +136,17 @@ export default {
       });
       // localStorage.setItem("id", idhome);
       console.log(idhome);
-      window.location.href = "/adminedit";
+      swal(
+                      "ลบข้อมูลเรียบร้อยเเล้ว",
+                      "You clicked the button!",
+                      "success"
+                    ).then(() => {
+                      setTimeout(function () {
+                        window.location.href = "/adminedit";
+                      }, 1800);
+                      window.location.href = "/adminedit";
+                    });
+      
     }
     
   },
@@ -144,6 +154,9 @@ export default {
 </script>
 
 <style>
+.box {
+  border: 5px solid orange;
+}
 .f1 {
   margin-top: 50px;
 }

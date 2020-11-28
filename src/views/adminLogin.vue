@@ -75,8 +75,14 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(
           (user) => {
-            swal("Good job!", "You clicked the button!", "success");
+            swal("Welcome", "You clicked the button!", "success")
+            .then(() => {
+          setTimeout(function() {
+          }, 1800);
             window.location.href = "/adminedit";
+        });
+            // swal("Good job!", "You clicked the button!", "success");
+            // window.location.href = "/adminedit";
             // this.$router.replace("/adminedit");
           },
           (err) => {
@@ -85,9 +91,8 @@ export default {
             swal("NO Authorization! Please Check User and Password", "You clicked the button!", "error")
             .then(() => {
           setTimeout(function() {
+          }, 1800);
             window.location.href = "/adminlogin";
-          }, 200);
-
         });
             // window.location.href = "/adminlogin";
           }
@@ -104,7 +109,7 @@ export default {
             this.$router.replace("/adminedit");
           },
           (err) => {
-            alert(err.message);
+            // alert(err.message);
           }
         );
     },

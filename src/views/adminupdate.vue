@@ -53,6 +53,44 @@
                     </div>
                     <div class="row">
                       <div class="col-5 mt-3">
+                        <p>ขนาดที่ดิน</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col x">
+                        <div
+                          class="custom-control custom-radio custom-control-inline"
+                        >
+                          <input
+                            type="radio"
+                            id="land1"
+                            name="customRadioInline5"
+                            class="custom-control-input"
+                            @click="flootone"
+                          />
+                          <label class="custom-control-label" for="land1"
+                            >23 ตร.วา</label
+                          >
+                        </div>
+
+                        <div
+                          class="custom-control custom-radio custom-control-inline"
+                        >
+                          <input
+                            type="radio"
+                            id="land2"
+                            name="customRadioInline5"
+                            class="custom-control-input"
+                            @click="floottwo"
+                          />
+                          <label class="custom-control-label" for="land2"
+                            >24 ตร.วา</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-5 mt-3">
                         <p>จำนวนชั้น</p>
                       </div>
                     </div>
@@ -233,44 +271,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-5 mt-3">
-                        <p>ขนาดที่ดิน</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col x">
-                        <div
-                          class="custom-control custom-radio custom-control-inline"
-                        >
-                          <input
-                            type="radio"
-                            id="land1"
-                            name="customRadioInline5"
-                            class="custom-control-input"
-                            @click="flootone"
-                          />
-                          <label class="custom-control-label" for="land1"
-                            >23 ตร.วา</label
-                          >
-                        </div>
-
-                        <div
-                          class="custom-control custom-radio custom-control-inline"
-                        >
-                          <input
-                            type="radio"
-                            id="land2"
-                            name="customRadioInline5"
-                            class="custom-control-input"
-                            @click="floottwo"
-                          />
-                          <label class="custom-control-label" for="land2"
-                            >24 ตร.วา</label
-                          >
-                        </div>
-                      </div>
-                    </div>
+                    
                     <div class="row">
                       <div class="col-5 mt-3">
                         <p>ราคา/เดือน</p>
@@ -450,6 +451,7 @@ export default {
   data() {
     return {
       datas: [],
+      datass: [],
     };
   },
   mounted() {
@@ -581,6 +583,7 @@ export default {
       }
     },
     async update(idhome) {
+      const axios = require("axios").default;
       var storageRef = firebase.storage().ref("img");
       // Get the file from DOM
       var file = document.getElementById("files").files[0];
@@ -612,7 +615,7 @@ export default {
       const storage = firebase.storage();
       // let linkimg = "";
       // Get metadata properties
-      let linkimg;
+       let linkimg;
       let self = this;
       await storage
         .ref("img")
@@ -622,7 +625,7 @@ export default {
           // console.log(typeof url);
           // console.log(url);
           self.linkimg = url;
-          self.datas.push(url);
+          self.datass.push(url);
 
           storage
             .ref("img")
@@ -632,7 +635,7 @@ export default {
               // console.log(typeof url);
               // console.log(url);
               self.linkimg = url;
-              self.datas.push(url);
+              self.datass.push(url);
 
               storage
                 .ref("img")
@@ -642,11 +645,8 @@ export default {
                   // console.log(typeof url);
                   // console.log(url);
                   self.linkimg = url;
-                  self.datas.push(url);
-                });
-            });
-        });
-      const axios = require("axios").default;
+                  self.datass.push(url);
+                    
       var data = new FormData();
       data.append("id", idhome);
        if (document.getElementById("statusvar").checked == true) {
@@ -708,9 +708,15 @@ export default {
       data.append("email", document.querySelector("input[id=email]").value);
       data.append("contract", document.getElementById("contract").value);
       data.append("Advice",document.querySelector("textarea[id=Advice]").value);
-      data.append("Pic1", self.datas[0]);
-        data.append("Pic2", self.datas[1]);
-        data.append("Pic3", self.datas[2]);
+      data.append("Pic1", self.datass[0]);
+      data.append("Pic2", self.datass[1]);
+      data.append("Pic3", self.datass[2]);
+        // console.log(1111111111111111111111111111111111111111);
+        // console.log(self.datass[0]);
+        // console.log(self.datass[1]);
+        // console.log(self.datass[2]);
+        // console.log(1111111111111111111111111111111111111111);
+        // console.log(data);
       data.forEach((element) => {
         console.log(element);
       });
@@ -722,10 +728,14 @@ export default {
       swal("อัพเดทข้อมูลครบแล้ว", "You clicked the button!", "success").then(
         () => {
           setTimeout(function () {
-            window.location.href = "#";
+            window.location.href = "/adminedit";
           }, 200);
         }
       );
+                });
+            });
+        });
+      
       // window.location.href = "/adminedit";
     },
   },

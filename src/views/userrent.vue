@@ -27,16 +27,12 @@
                     data-target="#carouselExampleIndicators"
                     data-slide-to="2"
                   ></li>
-                  <li
-                    data-target="#carouselExampleIndicators"
-                    data-slide-to="3"
-                  ></li>
                 </ol>
-                <div class="carousel-inner">
+                <div class="carousel-inner" v-for="i in datas">
                   <div class="carousel-item active">
                     <img
                       class="d-block w-100"
-                      src="../image/home1-1.jpg"
+                      :src="i.image1"
                       alt="Third slide"
                       width="350px"
                       height="400px"
@@ -45,7 +41,7 @@
                   <div class="carousel-item">
                     <img
                       class="d-block w-100"
-                      src="../image/home1-2.jpg"
+                      :src="i.image2"
                       alt="Second slide"
                       width="350px"
                       height="400px"
@@ -54,17 +50,8 @@
                   <div class="carousel-item">
                     <img
                       class="d-block w-100"
-                      src="../image/home1-3.jpg"
+                      :src="i.image3"
                       alt="First slide"
-                      width="350px"
-                      height="400px"
-                    />
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="../image/home1-4.jpg"
-                      alt="Four slide"
                       width="350px"
                       height="400px"
                     />
@@ -266,7 +253,7 @@ import firebase from "firebase";
 export default {
   data() {
     return {
-      // datas: [],
+      datas: [],
     };
   },
   mounted() {
@@ -278,7 +265,7 @@ export default {
       .then((response) => {
         // console.log(response);
         response.data.forEach((element) => {
-          // this.datas.push(element);
+          this.datas.push(element);
           console.log(element);
           document.getElementById("bedroom").value = element.Bedroom + "ห้อง";
           document.getElementById("toilet").value = element.toilet + "ห้อง";

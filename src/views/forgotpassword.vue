@@ -27,7 +27,7 @@
             </div>
             <div class="row">
               <div class="col mb-5">
-                <a href="adminLogin">Signin</a>
+                <span><a href="adminLogin">Signin</a></span>
               </div>
             </div>
           
@@ -43,6 +43,19 @@ export default {
 </script>
 
 <style scope>
+a{
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+}
+a:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+span {
+  display: block;
+  margin-top: 1px;
+  font-size: 20px;
+}
 body {
   /* background-image: url("https://cdn.hipwallpaper.com/i/73/6/WOlIqp.jpg"); */
   background-image: url("https://www.wallpaperflare.com/static/166/139/793/low-poly-red-white-area-wallpaper.jpg");

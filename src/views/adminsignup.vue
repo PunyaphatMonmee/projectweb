@@ -71,7 +71,7 @@ export default {
       window.location.href = "/adminLogin";
       // this.$router.replace("/adminLogin");
     } else {
-      alert("Logged in");
+      // alert("Logged in");
       
     }
   });
