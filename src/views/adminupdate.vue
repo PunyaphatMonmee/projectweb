@@ -707,10 +707,10 @@ export default {
       data.append("line", document.querySelector("input[id=line]").value);
       data.append("email", document.querySelector("input[id=email]").value);
       data.append("contract", document.getElementById("contract").value);
-      data.append(
-        "Advice",
-        document.querySelector("textarea[id=Advice]").value
-      );
+      data.append("Advice",document.querySelector("textarea[id=Advice]").value);
+      data.append("Pic1", self.datas[0]);
+        data.append("Pic2", self.datas[1]);
+        data.append("Pic3", self.datas[2]);
       data.forEach((element) => {
         console.log(element);
       });

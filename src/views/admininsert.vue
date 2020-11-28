@@ -12,7 +12,7 @@
                   <div class="col-6">
                     <div class="row">
                       <div class="col-6">
-                        <input type="file" id="files" name="files[]" multiple @click="chooseimg(101010)"/>
+                        <input type="file" id="files" name="files[]" multiple @click="chooseimg"/>
                       </div>
                     </div>
                     <div class="row">
@@ -477,7 +477,7 @@ export default {
   },
   methods: {
     chooseimg(x){
-      var dataimg = new FormData();
+      console.log(x);
       
     },
     onefloot(){
@@ -508,6 +508,8 @@ export default {
       var data = new FormData();
       console.log(a);
       //
+      document.getElementById("statusvar").checked = false;
+      document.getElementById("statusmaivar").checked = false;
       document.getElementById("class1").checked = false;
       document.getElementById("class2").checked = false;
       document.getElementById("Bedroom1").checked = false;
@@ -624,6 +626,12 @@ export default {
       ) {
         swal("กรุณาใส่ข้อมูลให้ครบ", "You clicked the button!", "warning");
       } else {
+        if (document.getElementById("statusvar").checked == true) {
+          data.append("status", 'ไม่ว่าง');
+        }
+        if (document.getElementById("statusmaivar").checked == true) {
+          data.append("status", 'ไม่ว่าง');
+        }
         if (document.getElementById("class1").checked == true) {
           data.append("floor", 1);
         }
