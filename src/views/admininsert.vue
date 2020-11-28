@@ -2,13 +2,13 @@
   <div class="wrapper text-left">
     <Menu />
     <div class="content-wrapper">
-      <div class="card-body">
-        <div class="row mt-3 ml-3 mr-3 my-auto">
-          <div class="col">
-            <div class="card bg-white">
-              <div class="card-body">
+      <div class="card-body ">
+        <div class="row mt-3 ml-3 mr-3 my-auto ">
+          <div class="col box " >
+            <div class="card bg-white mt-3" >
+              <div class="card-body " >
                 <!-- <form action="#"> -->
-                <div class="row">
+                <div class="row ">
                   <div class="col-6">
                     <div class="row">
                       <div class="col-6">
@@ -331,6 +331,7 @@
                           id="numberhome"
                           class="form-control"
                           aria-describedby="emailHelp"
+                          placeholder="203/"
                         />
                       </div>
                     </div>
@@ -753,5 +754,9 @@ export default {
 .form-control,
 .custom-select {
   width: 70%;
+}
+.box {
+  border: 15px solid orange;
+  border-radius: 15px;
 }
 </style>

@@ -62,20 +62,22 @@ export default {
       email: "",
       password: "",
     };
-  },
-  beforeCreate() {
-    //  alert("no Logged in");
-      firebase.auth().onAuthStateChanged((user) => {
-    if (!user) {
-      //  alert("no Logged in");
-      window.location.href = "/adminLogin";
-      // this.$router.replace("/adminLogin");
-    } else {
-      // alert("Logged in");
+  }
+  // ,
+  // beforeCreate() {
+  //   //  alert("no Logged in");
+  //     firebase.auth().onAuthStateChanged((user) => {
+  //   if (!user) {
+  //     //  alert("no Logged in");
+  //     window.location.href = "/adminLogin";
+  //     // this.$router.replace("/adminLogin");
+  //   } else {
+  //     // alert("Logged in");
       
-    }
-  });
-  },
+  //   }
+  // });
+  // }
+  ,
     mounted() {
   $(function () {
   $("#example1").DataTable({
@@ -91,7 +93,16 @@ export default {
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(
           function (user) {
-            alert("Your account has been created !");
+            // alert("Your account has been created !");
+            swal(
+                    "สมัครเรียบร้อยเเล้ว",
+                    "You clicked the button!",
+                    "success"
+                  ).then(() => {
+                    setTimeout(function () {
+                      window.location.href = "/adminlogin";
+                    }, 200);
+                  });
           },
           function (err) {
             alert("Oops. " + err.message);

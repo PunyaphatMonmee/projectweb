@@ -93,7 +93,7 @@ export default {
       }
     });
     await axios
-      .get("http://localhost:80/selecthome.php")
+      .get("http://localhost:80/selectpage2.php")
       .then((response) => {
         response.data.forEach((element) => {
           this.datas.push(element);

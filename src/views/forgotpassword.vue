@@ -3,9 +3,9 @@
     <div class="row mt-5">
       <div class="row mt-5 layout">
         <div class="col-6 mt-5 mx-auto ">
-              <h1>Forgot your password</h1>
+              <h1 class="poom">Forgot your password</h1>
             <div class="card-body">
-              <h5>Email address</h5>
+              <h5 class="poom">Email address</h5>
               <input
                 type="email"
                 v-model="email"
@@ -43,6 +43,9 @@ export default {
 </script>
 
 <style scope>
+.poom{
+  color: #ffffff;
+}
 a{
   font-family: "Times New Roman", Times, serif;
   color: white;

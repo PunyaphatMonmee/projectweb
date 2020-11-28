@@ -6,7 +6,7 @@
     <div class="content-wrapper bg">
       <div class="row">
         <div class="col-11 mx-auto mt-3">
-          <div class="card color">
+          <div class="card color box2">
             <div class="card-body">
               <div
                 id="carouselExampleIndicators"
@@ -291,6 +291,10 @@ export default {
 </script>
 
 <style>
+.box2 {
+  border: 15px solid orange;
+  border-radius: 15px;
+}
 .f1 {
   margin-top: 50px;
 }

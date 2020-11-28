@@ -13,7 +13,9 @@ export default {
         this.$router.replace("/");
       });
   },
-  mounted() {},
+  mounted() {
+    
+  },
 };
 </script>
 

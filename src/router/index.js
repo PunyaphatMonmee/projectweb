@@ -73,6 +73,34 @@ const routes = [{
             import ('../views/adminlogout.vue')
     },
     {
+        path: '/adminvar',
+        name: 'adminvar',
+
+        component: () =>
+            import ('../views/adminvar.vue')
+    },
+    {
+        path: '/adminmaivar',
+        name: 'adminmaivar',
+
+        component: () =>
+            import ('../views/adminmaivar.vue')
+    },
+    {
+        path: '/adminone',
+        name: 'adminone',
+
+        component: () =>
+            import ('../views/adminone.vue')
+    },
+    {
+        path: '/admintwo',
+        name: 'admintwo',
+
+        component: () =>
+            import ('../views/admintwo.vue')
+    },
+    {
         path: '/userfirstpage',
         name: 'userfirstpage',
 

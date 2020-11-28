@@ -271,7 +271,7 @@
                         </div>
                       </div>
                     </div>
-                    
+
                     <div class="row">
                       <div class="col-5 mt-3">
                         <p>ราคา/เดือน</p>
@@ -615,7 +615,7 @@ export default {
       const storage = firebase.storage();
       // let linkimg = "";
       // Get metadata properties
-       let linkimg;
+      let linkimg;
       let self = this;
       await storage
         .ref("img")
@@ -646,96 +646,113 @@ export default {
                   // console.log(url);
                   self.linkimg = url;
                   self.datass.push(url);
-                    
-      var data = new FormData();
-      data.append("id", idhome);
-       if (document.getElementById("statusvar").checked == true) {
-        data.append("status", "ว่าง");
-      }
-      if (document.getElementById("statusmaivar").checked == true) {
-        data.append("status", "ไม่ว่าง");
-      }
-      if (document.getElementById("class1").checked == true) {
-        data.append("floor", 1);
-      }
-      if (document.getElementById("class2").checked == true) {
-        data.append("floor", 2);
-      }
-      if (document.getElementById("bedroom1").checked == true) {
-        data.append("Bedroom", 1);
-      }
-      if (document.getElementById("bedroom2").checked == true) {
-        data.append("Bedroom", 2);
-      }
-      if (document.getElementById("bedroom3").checked == true) {
-        data.append("Bedroom", 3);
-      }
-      if (document.getElementById("toilet1").checked == true) {
-        data.append("toilet", 1);
-      }
-      if (document.getElementById("toilet2").checked == true) {
-        data.append("toilet", 2);
-      }
-      if (document.getElementById("toilet3").checked == true) {
-        data.append("toilet", 3);
-      }
-      if (document.getElementById("car1").checked == true) {
-        data.append("car", 1);
-      }
-      if (document.getElementById("car2").checked == true) {
-        data.append("car", 2);
-      }
-      if (document.getElementById("car3").checked == true) {
-        data.append("car", 3);
-      }
-      if (document.getElementById("land1").checked == true) {
-        data.append("land", "23ตร.วา");
-      }
-      if (document.getElementById("land2").checked == true) {
-        data.append("land", "24ตร.วา");
-      }
-      data.append("price", document.getElementById("price").value);
-      data.append(
-        "equipment",
-        document.querySelector("textarea[id=equipment]").value
-      );
-      data.append(
-        "numberhome",
-        document.querySelector("input[id=numberhome]").value
-      );
-      data.append("phone", document.querySelector("input[id=phone]").value);
-      data.append("line", document.querySelector("input[id=line]").value);
-      data.append("email", document.querySelector("input[id=email]").value);
-      data.append("contract", document.getElementById("contract").value);
-      data.append("Advice",document.querySelector("textarea[id=Advice]").value);
-      data.append("Pic1", self.datass[0]);
-      data.append("Pic2", self.datass[1]);
-      data.append("Pic3", self.datass[2]);
-        // console.log(1111111111111111111111111111111111111111);
-        // console.log(self.datass[0]);
-        // console.log(self.datass[1]);
-        // console.log(self.datass[2]);
-        // console.log(1111111111111111111111111111111111111111);
-        // console.log(data);
-      data.forEach((element) => {
-        console.log(element);
-      });
-      axios
-        .post("http://localhost:80/updatehome.php", data)
-        .then((response) => {
-          console.log(response.data);
-        });
-      swal("อัพเดทข้อมูลครบแล้ว", "You clicked the button!", "success").then(
-        () => {
-          setTimeout(function () {
-            window.location.href = "/adminedit";
-          }, 200);
-        }
-      );
+
+                  var data = new FormData();
+                  data.append("id", idhome);
+                  if (document.getElementById("statusvar").checked == true) {
+                    data.append("status", "ว่าง");
+                  }
+                  if (document.getElementById("statusmaivar").checked == true) {
+                    data.append("status", "ไม่ว่าง");
+                  }
+                  if (document.getElementById("class1").checked == true) {
+                    data.append("floor", 1);
+                  }
+                  if (document.getElementById("class2").checked == true) {
+                    data.append("floor", 2);
+                  }
+                  if (document.getElementById("bedroom1").checked == true) {
+                    data.append("Bedroom", 1);
+                  }
+                  if (document.getElementById("bedroom2").checked == true) {
+                    data.append("Bedroom", 2);
+                  }
+                  if (document.getElementById("bedroom3").checked == true) {
+                    data.append("Bedroom", 3);
+                  }
+                  if (document.getElementById("toilet1").checked == true) {
+                    data.append("toilet", 1);
+                  }
+                  if (document.getElementById("toilet2").checked == true) {
+                    data.append("toilet", 2);
+                  }
+                  if (document.getElementById("toilet3").checked == true) {
+                    data.append("toilet", 3);
+                  }
+                  if (document.getElementById("car1").checked == true) {
+                    data.append("car", 1);
+                  }
+                  if (document.getElementById("car2").checked == true) {
+                    data.append("car", 2);
+                  }
+                  if (document.getElementById("car3").checked == true) {
+                    data.append("car", 3);
+                  }
+                  if (document.getElementById("land1").checked == true) {
+                    data.append("land", "23ตร.วา");
+                  }
+                  if (document.getElementById("land2").checked == true) {
+                    data.append("land", "24ตร.วา");
+                  }
+                  data.append("price", document.getElementById("price").value);
+                  data.append(
+                    "equipment",
+                    document.querySelector("textarea[id=equipment]").value
+                  );
+                  data.append(
+                    "numberhome",
+                    document.querySelector("input[id=numberhome]").value
+                  );
+                  data.append(
+                    "phone",
+                    document.querySelector("input[id=phone]").value
+                  );
+                  data.append(
+                    "line",
+                    document.querySelector("input[id=line]").value
+                  );
+                  data.append(
+                    "email",
+                    document.querySelector("input[id=email]").value
+                  );
+                  data.append(
+                    "contract",
+                    document.getElementById("contract").value
+                  );
+                  data.append(
+                    "Advice",
+                    document.querySelector("textarea[id=Advice]").value
+                  );
+                  data.append("Pic1", self.datass[0]);
+                  data.append("Pic2", self.datass[1]);
+                  data.append("Pic3", self.datass[2]);
+                  // console.log(1111111111111111111111111111111111111111);
+                  // console.log(self.datass[0]);
+                  // console.log(self.datass[1]);
+                  // console.log(self.datass[2]);
+                  // console.log(1111111111111111111111111111111111111111);
+                  // console.log(data);
+                  data.forEach((element) => {
+                    console.log(element);
+                  });
+                  axios
+                    .post("http://localhost:80/updatehome.php", data)
+                    .then((response) => {
+                      console.log(response.data);
+                    });
+                  swal(
+                    "อัพเดทข้อมูลครบแล้ว",
+                    "You clicked the button!",
+                    "success"
+                  ).then(() => {
+                    setTimeout(function () {
+                      window.location.href = "/adminedit";
+                    }, 200);
+                  });
                 });
             });
         });
-      
+
       // window.location.href = "/adminedit";
     },
   },

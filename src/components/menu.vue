@@ -8,13 +8,13 @@
             ><i class="fas fa-bars"></i
           ></a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block" v-if ="!islogin">
+        <li class="nav-item d-none d-sm-inline-block" v-if="!islogin">
           <a href="userfirstpage" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block" v-else>
           <a href="adminedit" class="nav-link">Home</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block" v-if ="!islogin">
+        <li class="nav-item d-none d-sm-inline-block" v-if="!islogin">
           <a href="usermain" class="nav-link">Rent Home</a>
         </li>
       </ul>
@@ -45,11 +45,11 @@
               alt="admin Image"
             /> -->
             <img
-          src="../image/6030300644.jpg"
-          alt="AdminLTE Logo"
-          class="brand-image img-circle elevation-3"
-          style="opacity: 0.8"
-        />
+              src="../image/6030300644.jpg"
+              alt="AdminLTE Logo"
+              class="brand-image img-circle elevation-3"
+              style="opacity: 0.8"
+            />
           </div>
           <div class="info" v-if="islogin">
             <a href="adminedit" class="d-block">Admin Censiri</a>
@@ -65,34 +65,29 @@
             role="menu"
             data-accordion="false"
           >
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
             <li class="nav-item has-treeview text-left">
-              <a href=""  class="nav-link " style="color: orange">
+              <a href="" class="nav-link" style="color: orange">
                 <i class="far fa-address-book nav-icon"></i>
-                <p>
-                  สถานะ
-                  <i class="right fas fa-angle-left"></i>
-                </p>
+                <p>สถานะ<i class="right fas fa-angle-left"></i></p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../usermainvar" class="nav-link active">
+                  <a @click="checkstatus" class="nav-link active">
                     <i class="fas fa-door-open nav-icon"></i>
                     <p>ว่างให้เช่า</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../usermainmaivar" class="nav-link active">
+                  <a  @click="checkstatus1" class="nav-link active">
                     <i class="fas fa-door-closed nav-icon"></i>
                     <p>ไม่ว่างให้เช่า</p>
                   </a>
                 </li>
               </ul>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown"></li>
             <li class="nav-item has-treeview text-left">
-              <a href="#" class="nav-link" style="color: orange">
+              <a href="" class="nav-link" style="color: orange">
                 <i class="fas fa-home nav-icon"></i>
                 <p>
                   รูปแบบ
@@ -101,13 +96,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../userone" class="nav-link active">
+                  <a @click="checkstatus2" class="nav-link active">
                     <i class="fas fa-user nav-icon"></i>
                     <p>1ชั้น</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../usertwo" class="nav-link active">
+                  <a @click="checkstatus3" class="nav-link active">
                     <!-- <i class="far fa-users nav-icon"></i> -->
                     <i class="fas fa-users nav-icon"></i>
 
@@ -123,12 +118,12 @@
               </a>
             </li>
             <li class="nav-item text-left" v-if="islogin">
-              <a href="../adminlogout" class="nav-link" style="color: orange">
+              <!-- <a href="../adminlogout" class="nav-link" style="color: orange"> -->
+                <a @click="check" class="nav-link" style="color: orange">
                 <i class="fas fa-sign-out-alt nav-icon"></i>
                 <p>Signout</p>
               </a>
             </li>
-            
           </ul>
         </nav>
       </div>
@@ -137,30 +132,68 @@
 </template>
 
 <script>
-import firebase from 'firebase'
+import firebase from "firebase";
 const axios = require("axios");
 export default {
   data() {
     return {
-      islogin:false,
-      datas: []
-    }
+      islogin: false,
+      datas: [],
+    };
   },
   mounted() {
+    console.log(localStorage.getItem("adminstatus"));
+    localStorage.getItem("adminstatus");
     firebase.auth().onAuthStateChanged((user) => {
       // alert(user);
       if (!user) {
         // alert("No Logged /in");
-       
       } else {
         // alert("Logged in");
         this.islogin = true;
       }
     });
-    
   },
-}
+  methods: {
+    check(){
+      localStorage.setItem("adminstatuslogin", 0);
+      window.location.href = "/adminlogout";
+    },
+    checkstatus(){
+      if(localStorage.getItem("adminstatuslogin") == 1 && localStorage.getItem("adminstatuslogout") == 0){
+        window.location.href = "/adminvar";
+      }
+      else{
+        window.location.href = "/usermainvar";
+      }
+    },
+    checkstatus1(){
+      if(localStorage.getItem("adminstatuslogin") == 1 && localStorage.getItem("adminstatuslogout") == 0){
+        window.location.href = "/adminmaivar";
+      }
+      else{
+        window.location.href = "/usermainmaivar";
+      }
+    },
+    checkstatus2(){
+      if(localStorage.getItem("adminstatuslogin") == 1 && localStorage.getItem("adminstatuslogout") == 0){
+        window.location.href = "/adminone";
+      }
+      else{
+        window.location.href = "/usermainone";
+      }
+    },checkstatus3(){
+      if(localStorage.getItem("adminstatuslogin") == 1 && localStorage.getItem("adminstatuslogout") == 0){
+        window.location.href = "/admintwo";
+      }
+      else{
+        window.location.href = "/usermaintwo";
+      }
+    }
+  },
+};
 </script>
 
 <style scope>
+
 </style>

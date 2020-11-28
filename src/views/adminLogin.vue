@@ -29,7 +29,7 @@
           required
         />
       </div>
-      <div class="row-6 mt-2">
+      <div class="row-6 mt-4">
         <button
           @click="login"
           class="btn-submit"
@@ -70,6 +70,8 @@ export default {
   },
   methods: {
     login(e) {
+      var lonin = 1;
+      var logout = 0;
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
@@ -79,6 +81,8 @@ export default {
             .then(() => {
           setTimeout(function() {
           }, 1800);
+            localStorage.setItem("adminstatuslogin", lonin);
+            localStorage.setItem("adminstatuslogout", logout);
             window.location.href = "/adminedit";
         });
             // swal("Good job!", "You clicked the button!", "success");
