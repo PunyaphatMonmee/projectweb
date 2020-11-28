@@ -4,17 +4,17 @@
     <div class="content-wrapper">
       <div class="card-body">
         <div class="row mt-3 ml-3 mr-3 my-auto">
-          <div class="col">
-            <div class="card bg-white">
+          <div class="col box">
+            <div class="card bg-white mt-3">
               <div class="card-body">
                 <!-- <form action=""> -->
                 <div class="row">
                   <div class="col-6">
-                    <div class="row">
+                    <!-- <div class="row">
                       <div class="col-6">
                         <input type="file" id="files" name="files[]" multiple />
                       </div>
-                    </div>
+                    </div> -->
                     <div class="row">
                       <div class="col-5 mt-3">
                         <p>สถานะ</p>
@@ -271,7 +271,7 @@
                         </div>
                       </div>
                     </div>
-
+                    
                     <div class="row">
                       <div class="col-5 mt-3">
                         <p>ราคา/เดือน</p>
@@ -309,7 +309,7 @@
                   </div>
                   <div class="col-5">
                     <div class="row">
-                      <div class="col-3 mt-5">
+                      <div class="col-3 mt-3">
                         <p>บ้านเลขที่</p>
                       </div>
                     </div>
@@ -386,7 +386,7 @@
                           <option value="1">1ปี</option>
                           <option value="2">2ปี</option>
                           <option value="3">3ปี</option>
-                          <option value="4">ปี</option>
+                          <option value="4">4ปี</option>
                         </select>
                       </div>
                     </div>
@@ -584,175 +584,85 @@ export default {
     },
     async update(idhome) {
       const axios = require("axios").default;
-      var storageRef = firebase.storage().ref("img");
-      // Get the file from DOM
-      var file = document.getElementById("files").files[0];
-      var file1 = document.getElementById("files").files[1];
-      var file2 = document.getElementById("files").files[2];
-      console.log(file.name);
-      console.log(file1.name);
-      console.log(file2.name);
-      // console.log(file2.name);
-      //dynamically s1et reference to the file name
-      var thisRef = storageRef.child(file.name);
-      //put request upload file to firebase storage
-      await thisRef.put(file).then((snapshot) => {
-        // swal("Good job!", "You clicked the button!", "success");
-        console.log("Uploaded a blob or file!");
+      
+      var data = new FormData();
+      data.append("id", idhome);
+       if (document.getElementById("statusvar").checked == true) {
+        data.append("status", "ว่าง");
+      }
+      if (document.getElementById("statusmaivar").checked == true) {
+        data.append("status", "ไม่ว่าง");
+      }
+      if (document.getElementById("class1").checked == true) {
+        data.append("floor", 1);
+      }
+      if (document.getElementById("class2").checked == true) {
+        data.append("floor", 2);
+      }
+      if (document.getElementById("bedroom1").checked == true) {
+        data.append("Bedroom", 1);
+      }
+      if (document.getElementById("bedroom2").checked == true) {
+        data.append("Bedroom", 2);
+      }
+      if (document.getElementById("bedroom3").checked == true) {
+        data.append("Bedroom", 3);
+      }
+      if (document.getElementById("toilet1").checked == true) {
+        data.append("toilet", 1);
+      }
+      if (document.getElementById("toilet2").checked == true) {
+        data.append("toilet", 2);
+      }
+      if (document.getElementById("toilet3").checked == true) {
+        data.append("toilet", 3);
+      }
+      if (document.getElementById("car1").checked == true) {
+        data.append("car", 1);
+      }
+      if (document.getElementById("car2").checked == true) {
+        data.append("car", 2);
+      }
+      if (document.getElementById("car3").checked == true) {
+        data.append("car", 3);
+      }
+      if (document.getElementById("land1").checked == true) {
+        data.append("land", "23ตร.วา");
+      }
+      if (document.getElementById("land2").checked == true) {
+        data.append("land", "24ตร.วา");
+      }
+      data.append("price", document.getElementById("price").value);
+      data.append(
+        "equipment",
+        document.querySelector("textarea[id=equipment]").value
+      );
+      data.append(
+        "numberhome",
+        document.querySelector("input[id=numberhome]").value
+      );
+      data.append("phone", document.querySelector("input[id=phone]").value);
+      data.append("line", document.querySelector("input[id=line]").value);
+      data.append("email", document.querySelector("input[id=email]").value);
+      data.append("contract", document.getElementById("contract").value);
+      data.append("Advice",document.querySelector("textarea[id=Advice]").value);
+      data.forEach((element) => {
+        console.log(element);
       });
-      thisRef = storageRef.child(file1.name);
-      //put request upload file to firebase storage
-      await thisRef.put(file1).then((snapshot) => {
-        // swal("Good job!", "You clicked the button!", "success");
-        console.log("Uploaded a blob or file!");
-      });
-      thisRef = storageRef.child(file2.name);
-      //put request upload file to firebase storage
-      await thisRef.put(file2).then((snapshot) => {
-        // swal("Good job!", "You clicked the button!", "success");
-        console.log("Uploaded a blob or file!");
-      });
-      const storage = firebase.storage();
-      // let linkimg = "";
-      // Get metadata properties
-      let linkimg;
-      let self = this;
-      await storage
-        .ref("img")
-        .child(file.name)
-        .getDownloadURL()
-        .then((url) => {
-          // console.log(typeof url);
-          // console.log(url);
-          self.linkimg = url;
-          self.datass.push(url);
-
-          storage
-            .ref("img")
-            .child(file1.name)
-            .getDownloadURL()
-            .then((url) => {
-              // console.log(typeof url);
-              // console.log(url);
-              self.linkimg = url;
-              self.datass.push(url);
-
-              storage
-                .ref("img")
-                .child(file2.name)
-                .getDownloadURL()
-                .then((url) => {
-                  // console.log(typeof url);
-                  // console.log(url);
-                  self.linkimg = url;
-                  self.datass.push(url);
-
-                  var data = new FormData();
-                  data.append("id", idhome);
-                  if (document.getElementById("statusvar").checked == true) {
-                    data.append("status", "ว่าง");
-                  }
-                  if (document.getElementById("statusmaivar").checked == true) {
-                    data.append("status", "ไม่ว่าง");
-                  }
-                  if (document.getElementById("class1").checked == true) {
-                    data.append("floor", 1);
-                  }
-                  if (document.getElementById("class2").checked == true) {
-                    data.append("floor", 2);
-                  }
-                  if (document.getElementById("bedroom1").checked == true) {
-                    data.append("Bedroom", 1);
-                  }
-                  if (document.getElementById("bedroom2").checked == true) {
-                    data.append("Bedroom", 2);
-                  }
-                  if (document.getElementById("bedroom3").checked == true) {
-                    data.append("Bedroom", 3);
-                  }
-                  if (document.getElementById("toilet1").checked == true) {
-                    data.append("toilet", 1);
-                  }
-                  if (document.getElementById("toilet2").checked == true) {
-                    data.append("toilet", 2);
-                  }
-                  if (document.getElementById("toilet3").checked == true) {
-                    data.append("toilet", 3);
-                  }
-                  if (document.getElementById("car1").checked == true) {
-                    data.append("car", 1);
-                  }
-                  if (document.getElementById("car2").checked == true) {
-                    data.append("car", 2);
-                  }
-                  if (document.getElementById("car3").checked == true) {
-                    data.append("car", 3);
-                  }
-                  if (document.getElementById("land1").checked == true) {
-                    data.append("land", "23ตร.วา");
-                  }
-                  if (document.getElementById("land2").checked == true) {
-                    data.append("land", "24ตร.วา");
-                  }
-                  data.append("price", document.getElementById("price").value);
-                  data.append(
-                    "equipment",
-                    document.querySelector("textarea[id=equipment]").value
-                  );
-                  data.append(
-                    "numberhome",
-                    document.querySelector("input[id=numberhome]").value
-                  );
-                  data.append(
-                    "phone",
-                    document.querySelector("input[id=phone]").value
-                  );
-                  data.append(
-                    "line",
-                    document.querySelector("input[id=line]").value
-                  );
-                  data.append(
-                    "email",
-                    document.querySelector("input[id=email]").value
-                  );
-                  data.append(
-                    "contract",
-                    document.getElementById("contract").value
-                  );
-                  data.append(
-                    "Advice",
-                    document.querySelector("textarea[id=Advice]").value
-                  );
-                  data.append("Pic1", self.datass[0]);
-                  data.append("Pic2", self.datass[1]);
-                  data.append("Pic3", self.datass[2]);
-                  // console.log(1111111111111111111111111111111111111111);
-                  // console.log(self.datass[0]);
-                  // console.log(self.datass[1]);
-                  // console.log(self.datass[2]);
-                  // console.log(1111111111111111111111111111111111111111);
-                  // console.log(data);
-                  data.forEach((element) => {
-                    console.log(element);
-                  });
-                  axios
-                    .post("http://localhost:80/updatehome.php", data)
-                    .then((response) => {
-                      console.log(response.data);
-                    });
-                  swal(
-                    "อัพเดทข้อมูลครบแล้ว",
-                    "You clicked the button!",
-                    "success"
-                  ).then(() => {
-                    setTimeout(function () {
-                      window.location.href = "/adminedit";
-                    }, 200);
-                  });
-                });
-            });
+      axios
+        .post("http://localhost:80/updatehome.php", data)
+        .then((response) => {
+          console.log(response.data);
         });
-
+      swal("อัพเดทข้อมูลครบแล้ว", "You clicked the button!", "success").then(
+        () => {
+          setTimeout(function () {
+            window.location.href = "/adminedit";
+          }, 200);
+        }
+      );
+               
+      
       // window.location.href = "/adminedit";
     },
   },
@@ -763,6 +673,13 @@ export default {
 .form-control,
 .custom-select {
   width: 70%;
+}
+.box {
+  border: 10px solid orange;
+  border-radius: 15px;
+}
+p{
+  color:orange
 }
 </style>
 

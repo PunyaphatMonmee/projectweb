@@ -144,6 +144,7 @@ export default {
     Menu,
   },
   async mounted() {
+    
     const axios = require("axios");
     // let self = this;
     await axios
@@ -195,5 +196,8 @@ export default {
 }
 th {
   width: 100px;
+}
+p{
+  color:orange
 }
 </style>

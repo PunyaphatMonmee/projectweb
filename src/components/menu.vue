@@ -118,6 +118,12 @@
               </a>
             </li>
             <li class="nav-item text-left" v-if="islogin">
+              <a href="../adminupdateimg" class="nav-link" style="color: orange">
+                <i class="fas fa-images nav-icon"></i>
+                <p>อัพเดทรูป</p>
+              </a>
+            </li>
+            <li class="nav-item text-left" v-if="islogin">
               <!-- <a href="../adminlogout" class="nav-link" style="color: orange"> -->
                 <a @click="check" class="nav-link" style="color: orange">
                 <i class="fas fa-sign-out-alt nav-icon"></i>
@@ -180,14 +186,14 @@ export default {
         window.location.href = "/adminone";
       }
       else{
-        window.location.href = "/usermainone";
+        window.location.href = "/userone";
       }
     },checkstatus3(){
       if(localStorage.getItem("adminstatuslogin") == 1 && localStorage.getItem("adminstatuslogout") == 0){
         window.location.href = "/admintwo";
       }
       else{
-        window.location.href = "/usermaintwo";
+        window.location.href = "/usertwo";
       }
     }
   },

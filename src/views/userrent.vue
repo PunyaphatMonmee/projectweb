@@ -291,6 +291,9 @@ export default {
 </script>
 
 <style>
+p{
+  color:orange
+}
 .box2 {
   border: 15px solid orange;
   border-radius: 15px;

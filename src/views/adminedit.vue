@@ -30,7 +30,7 @@
                         <img
                           class="sizeimg"
                           :src="x.image1"
-                          alt="Card image cap"
+                          alt="Card image home"
                         />
                       </td>
                       <td>{{ x.numberhome }}</td>

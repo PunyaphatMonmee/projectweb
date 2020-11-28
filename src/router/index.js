@@ -58,7 +58,15 @@ const routes = [{
         // beforeEnter: check,
         component: () =>
             import ('../views/admininsert.vue')
-    }, {
+    },
+    {
+        path: '/adminupdateimg',
+        name: 'adminupdateimg',
+        // beforeEnter: check,
+        component: () =>
+            import ('../views/adminupdateimg.vue')
+    },
+    {
         path: '/adminupdate',
         name: 'adminupdate',
         // beforeEnter: check,
@@ -101,6 +109,12 @@ const routes = [{
             import ('../views/admintwo.vue')
     },
     {
+        path: '/adminupdateimg',
+        name: 'adminupdateimg',
+
+        component: () =>
+            import ('../views/adminupdateimg.vue')
+    }, {
         path: '/userfirstpage',
         name: 'userfirstpage',
 

@@ -759,4 +759,7 @@ export default {
   border: 15px solid orange;
   border-radius: 15px;
 }
+p{
+  color:orange
+}
 </style>
