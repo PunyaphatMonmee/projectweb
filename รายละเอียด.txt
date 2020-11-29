@@ -1,0 +1,23 @@
+นาย ปุญญพัฒน์ มนต์มี 6030300644
+นาย ภูมิพัฒน์ นาคมาค 6030300857
+
+framework: Vuejs
+fontend: bootstrap , CSS ,Template adminLTE 
+backend: javascript , php
+database: firebase , sql
+
+วิธีการติดตั้ง
+ลง node.js
+ลง xampp แล้ว run Apache กับ   MySQL
+import ไฟล์  projecthomecensiri.sql เข้า sql
+npm install sweetalert --save
+npm install axios
+
+ลงเสร็จหมดแล้ว ใช้คำสั่ง npm run serve เพื่อ  run web
+
+จะเข้าหน้าหลัก ใช้ http://localhost:8080/main
+
+จะเข้าส่วนของ admin ใช้ http://localhost:8080/adminlogin
+username : petch@gmail.com
+password : 123456789
+สามารถสมัครได้ครับ
