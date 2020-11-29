@@ -42,7 +42,7 @@
           <span><a href="adminsignup" class="linelink">Signup</a></span>
         </button>
       </div>
-      <div class="mt-2">
+      <!-- <div class="mt-2">
         <button @click="loginWithProvider" class="logo-google">
           <img
             src="https://www.pngkit.com/png/full/178-1783296_g-transparent-circle-google-logo.png"
@@ -51,8 +51,8 @@
             height="80px"
           />
         </button>
-      </div>
-      <div class="row-6 mt-2">
+      </div> -->
+      <div class="row-6 mt-3">
         <!-- <a href="#" class="forgot">Forgot your password?</a> -->
         <a href="forgotpassword" class="forgot">Forgot your password?</a>
       </div>
@@ -103,20 +103,22 @@ export default {
         );
       e.preventDefault();
     },
-    loginWithProvider(e) {
-      var provider = new firebase.auth.GoogleAuthProvider();
-      firebase
-        .auth()
-        .signInWithPopup(provider)
-        .then(
-          (user) => {
-            this.$router.replace("/adminedit");
-          },
-          (err) => {
-            // alert(err.message);
-          }
-        );
-    },
+    // loginWithProvider(e) {
+    //   var provider = new firebase.auth.GoogleAuthProvider();
+    //   firebase
+    //     .auth()
+    //     .signInWithPopup(provider)
+    //     .then(
+    //       (user) => {
+            
+    //         this.$router.replace("/adminedit");
+    //       },
+    //       (err) => {
+    //         // alert(err.message);
+            
+    //       }
+    //     );
+    // },
   },
 };
 </script>

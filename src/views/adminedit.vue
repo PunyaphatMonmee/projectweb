@@ -176,4 +176,7 @@ export default {
 th {
   width: 100px;
 }
+p{
+  color:orange
+}
 </style>
