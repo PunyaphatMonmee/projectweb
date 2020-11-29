@@ -52,10 +52,10 @@
           />
         </button>
       </div> -->
-      <div class="row-6 mt-3">
+      <!-- <div class="row-6 mt-3"> -->
         <!-- <a href="#" class="forgot">Forgot your password?</a> -->
-        <a href="forgotpassword" class="forgot">Forgot your password?</a>
-      </div>
+        <!-- <a href="forgotpassword" class="forgot">Forgot your password?</a>
+      </div> -->
     </div>
   </form>
 </template>
